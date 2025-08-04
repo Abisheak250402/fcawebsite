@@ -7,6 +7,21 @@
   <title>Friends Construction and Architect</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
+    .testimonial-box {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonial-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.selected-testimonial {
+  border: 2px solid #04619f;
+  background-color: #e6f4ff;
+}
+
     .menu-wrapper {
   position: absolute;
   bottom: 10px;
@@ -423,9 +438,22 @@
     }
   });
 </script>
+        <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const testimonials = document.querySelectorAll("#testimonials .testimonial-box");
+
+    testimonials.forEach((box) => {
+      box.addEventListener("click", () => {
+        box.classList.toggle("selected-testimonial");
+      });
+    });
+  });
+</script>
+
 
 
 </body>
 </html>
 
   
+
