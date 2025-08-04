@@ -7,6 +7,25 @@
   <title>Friends Construction and Architect</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
+    .nav-wrapper {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  z-index: 2;
+}
+
+.nav-wrapper nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-wrapper nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
     * {
       margin: 0; padding: 0; box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
@@ -219,14 +238,15 @@
         <div class="contact-info" style="font-size: 0.95rem; margin-top: 0.3rem; text-shadow: 1px 1px 5px black;">
           📞 78250 57008 &nbsp;&nbsp; 📧 fcaconstruction2@gmail.com &nbsp;&nbsp; 📍 All over Tamil Nadu
         </div>
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#services">Services</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
+       <div class="nav-wrapper">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
     </header>
   </div>
 
@@ -308,3 +328,4 @@
 
 </body>
 </html>
+
