@@ -7,6 +7,48 @@
   <title>Friends Construction and Architect</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
+    .menu-wrapper {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  z-index: 10;
+}
+
+.menu-icon {
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+  text-shadow: 1px 1px 4px black;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 35px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.dropdown-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
     .nav-wrapper {
   position: absolute;
   bottom: 10px;
@@ -238,15 +280,15 @@
         <div class="contact-info" style="font-size: 0.95rem; margin-top: 0.3rem; text-shadow: 1px 1px 5px black;">
           📞 78250 57008 &nbsp;&nbsp; 📧 fcaconstruction2@gmail.com &nbsp;&nbsp; 📍 All over Tamil Nadu
         </div>
-       <div class="nav-wrapper">
-  <nav>
+      <div class="menu-wrapper">
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="dropdown-menu" id="dropdownMenu">
     <a href="#home">Home</a>
     <a href="#about">About Us</a>
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
-  </nav>
-</div>
+  </div>
     </header>
   </div>
 
@@ -325,7 +367,23 @@
       });
     });
   </script>
+        <script>
+  function toggleMenu() {
+    const menu = document.getElementById("dropdownMenu");
+    menu.style.display = (menu.style.display === "block") ? "none" : "block";
+  }
+
+  document.addEventListener("click", function(event) {
+    const menu = document.getElementById("dropdownMenu");
+    const icon = document.querySelector(".menu-icon");
+    if (!icon.contains(event.target) && !menu.contains(event.target)) {
+      menu.style.display = "none";
+    }
+  });
+</script>
+
 
 </body>
 </html>
+
 
