@@ -1,460 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Friends Construction and Architect - We build dreams into reality across Tamil Nadu, Kerala, and Karnataka with 2D/3D plans, construction, interiors, and more.">
-  <title>Friends Construction and Architect</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <style>
-    .testimonial-box {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.testimonial-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.selected-testimonial {
-  border: 2px solid #04619f;
-  background-color: #e6f4ff;
-}
-
-    .menu-wrapper {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  z-index: 10;
-}
-
-.menu-icon {
-  font-size: 26px;
-  color: white;
-  cursor: pointer;
-  text-shadow: 1px 1px 4px black;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  right: 0;
-  bottom: 35px;
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-
-.dropdown-menu a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-weight: 600;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dropdown-menu a:last-child {
-  border-bottom: none;
-}
-
-.dropdown-menu a:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-    .nav-wrapper {
-  position: absolute;
-  bottom: 10px;
-  right: 20px;
-  z-index: 2;
-}
-
-.nav-wrapper nav {
-  display: flex;
-  gap: 15px;
-}
-
-.nav-wrapper nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: #f4f4f4;
-      color: #222;
-      line-height: 1.6;
-    }
-
-    .header-container {
-      position: relative;
-      height: 250px;
-      overflow: hidden;
-    }
-
-    .header-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("Construction.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: blur(6px);
-      z-index: 0;
-      transform: scale(1.05);
-    }
-
-    header {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      color: white;
-    }
-
-    #themeToggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 1000;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-    }
-
-    .company-name {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.2rem, 4vw, 2.5rem);
-      font-weight: 600;
-      text-align: center;
-      color: #ffffff;
-      flex: 1;
-    }
-
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: 600;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    }
-
-    section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .projects-grid, .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .project, .service {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project:hover, .service:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-
-    .project img, .service img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      filter: brightness(0.8);
-    }
-
-    .project div, .service div {
-      padding: 1rem;
-    }
-
-    .contact {
-      background: #012840;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .form-section {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 2rem auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    .form-section input, .form-section select, .form-section textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .form-section button {
-      background: #04619f;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    footer {
-      background: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    body.dark-theme {
-      background-color: #111;
-      color: #eee;
-    }
-
-    body.dark-theme header nav a {
-      color: #ddd;
-    }
-
-    body.dark-theme .service,
-    body.dark-theme .project,
-    body.dark-theme .form-section {
-      background: #1f1f1f;
-      color: #fff;
-      box-shadow: 0 2px 12px rgba(255,255,255,0.1);
-    }
-
-    body.dark-theme footer {
-      background: #000;
-      color: #888;
-    }
-
-    @media (max-width: 768px) {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Friends Construction and Architect</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f7f7f7;
+      }
       header {
-        flex-direction: column;
-        align-items: center;
+        background: #003366;
+        color: white;
+        padding: 1rem;
         text-align: center;
       }
-
-      .company-name {
-        margin: 10px 0;
-      }
-
       nav {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
+        background: #005599;
+        color: white;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0.5rem 0;
       }
-    }
-  </style>
-</head>
-<body>
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      section {
+        padding: 2rem;
+      }
+      .hero {
+        background: url('your-image.jpg') no-repeat center center/cover;
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+      }
+      .services-list, .projects-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+      .service-box, .project-box {
+        background: white;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .contact-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        max-width: 500px;
+        margin: auto;
+      }
+      .contact-form input, .contact-form textarea, .contact-form button {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      footer {
+        background: #003366;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
 
-  <div class="header-container">
-    <div class="header-bg"></div>
     <header>
-      <div style="width: 100%; text-align: center;">
-        <div class="company-name" style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-family: 'Orbitron', sans-serif; font-weight: 700; text-shadow: 2px 2px 10px black;">
-          Friends Construction and Architect
-        </div>
-        <div class="tagline" style="font-size: 1.1rem; font-weight: 400; margin-top: 0.2rem; text-shadow: 1px 1px 6px black;">
-          We Build Dreams Into Reality
-        </div>
-        <div class="contact-info" style="font-size: 0.95rem; margin-top: 0.3rem; text-shadow: 1px 1px 5px black;">
-          📞 78250 57008 &nbsp;&nbsp; 📧 fcaconstruction2@gmail.com &nbsp;&nbsp; 📍 All over Tamil Nadu
-        </div>
-      <div class="menu-wrapper">
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  <div class="dropdown-menu" id="dropdownMenu">
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
+      <h1>Friends Construction and Architect</h1>
+      <p>We build your dreams into reality</p>
     </header>
-  </div>
 
-  <!-- Theme Toggle Button -->
-  <button id="themeToggle">🌙 Theme</button>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact Us</a>
+    </nav>
 
-  <main>
+    <section class="hero" id="home">
+      <h2>Building Tomorrow's Landmarks</h2>
+      <p>Serving Tamil Nadu, Kerala, Karnataka</p>
+    </section>
+
     <section id="about">
       <h2>About Us</h2>
-      <p>We are a leading construction and architectural firm delivering high-quality infrastructure solutions across Tamil Nadu, Kerala, and Karnataka. From concept to completion, our goal is to bring your dream spaces to life.</p>
+      <p>Friends Construction and Architect is committed to delivering high-tech, quality construction and architectural solutions tailored to our client's dreams. With years of experience and a professional team, we make your ideas a reality.</p>
     </section>
 
     <section id="services">
       <h2>Our Services</h2>
-      <div class="services-grid">
-        <!-- Repeat for each service -->
-        <div class="service"><img src="2dplan.png" alt="2D Vastu Plan"><div><h3>2D Vastu Plan</h3><p>Precise vastu-compliant floor planning.</p></div></div>
-        <div class="service"><img src="3dwalkthrough.jpeg" alt="3D Walkthrough"><div><h3>3D Walkthrough</h3><p>Immersive design previews before construction.</p></div></div>
-        <div class="service"><img src="Estimation.jpeg" alt="Estimation"><div><h3>Estimation</h3><p>Accurate budgeting for your construction needs.</p></div></div>
-        <div class="service"><img src="Interior .jpeg" alt="Interior/Exterior"><div><h3>Interior & Exterior</h3><p>Elegant design solutions for every space.</p></div></div>
-        <div class="service"><img src="PlanApproval.jpeg" alt="Plan Approval"><div><h3>Plan Approval</h3><p>Get your plans approved swiftly and efficiently.</p></div></div>
-        <div class="service"><img src="Renovation .jpeg" alt="Renovation"><div><h3>Renovation</h3><p>Modernize your space with our expert remodeling.</p></div></div>
-        <div class="service"><img src="Structural .jpeg" alt="Structural Drawings"><div><h3>Structural Drawings</h3><p>Engineered blueprints that ensure safety and strength.</p></div></div>
-        <div class="service"><img src="Construction.jpg" alt="Construction"><div><h3>Construction</h3><p>Reliable full-scale construction from start to finish.</p></div></div>
+      <div class="services-list">
+        <div class="service-box">🏗️ Construction</div>
+        <div class="service-box">📐 2D Vastu Plan</div>
+        <div class="service-box">📊 Estimation</div>
+        <div class="service-box">📎 Structural Drawings</div>
+        <div class="service-box">🎥 3D Walkthrough</div>
+        <div class="service-box">🖼️ Interior/Exterior Designs</div>
+        <div class="service-box">📄 Plan Approval</div>
+        <div class="service-box">🔧 Renovation Work</div>
       </div>
     </section>
-    <!-- Achievements Section -->
-<section id="achievements" style="background:#012840; color:white; padding:3rem 2rem; text-align:center;">
-  <h2 style="margin-bottom: 2rem;">Our Achievements</h2>
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
-    <div style="flex:1 1 200px;">
-      <h3 style="font-size:2rem;">🏗️ 12+</h3>
-      <p>Projects Completed</p>
-    </div>
-    <div style="flex:1 1 200px;">
-      <h3 style="font-size:2rem;">😊 12+</h3>
-      <p>Happy Clients</p>
-    </div>
-    <div style="flex:1 1 200px;">
-      <h3 style="font-size:2rem;">📍 3 States</h3>
-      <p>Tamil Nadu, Kerala, Karnataka</p>
-    </div>
-  </div>
-</section>
-
-<!-- Testimonials Section -->
-<section id="testimonials" style="padding:3rem 2rem; background:#f7f7f7; text-align:center;">
-  <h2 style="margin-bottom:2rem;">What Our Clients Say</h2>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; max-width:1100px; margin:auto;">
-    
-    <div class="testimonial-box" style="background:white; border-radius:10px; padding:1.5rem; ...">
-      <p style="font-style:italic;">"Excellent planning and execution. The 3D walkthrough gave us clarity before construction. Highly recommended!"</p>
-      <h4 style="margin-top:1rem;">– Mr. Abisheak, Tamil Nadu</h4>
-    </div>
-
-    <div class="testimonial-box" style="background:white; border-radius:10px; padding:1.5rem; ...">
-      <p style="font-style:italic;">"FCA handled our renovation with care and perfection. Felt very professional throughout."</p>
-      <h4 style="margin-top:1rem;">– Mrs. Predyusha Abisheak, Kaniyakumari</h4>
-    </div>
-
-    <div class="testimonial-box" style="background:white; border-radius:10px; padding:1.5rem; ...">
-      <p style="font-style:italic;">"From vastu planning to final touches, everything was smooth. Loved their team coordination."</p>
-      <h4 style="margin-top:1rem;">– Miss.Achu , Karnataka</h4>
-    </div>
-
-  </div>
-</section>
-
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project"><img src="commercialbuilding.jpeg" alt="Commercial Building"><div><h3>Commercial Building</h3><p>Modern commercial structures with smart architecture.</p></div></div>
-        <div class="project"><img src="villa.jpg" alt="Villa"><div><h3>Villa Design</h3><p>Elegant private villas tailored to lifestyle needs.</p></div></div>
-        <div class="project"><img src="apartment.jpeg" alt="Apartment"><div><h3>Apartment Projects</h3><p>High-rise homes with comfort and convenience.</p></div></div>
-        <div class="project"><img src="officeDesign.jpg" alt="Office Design"><div><h3>Office Design</h3><p>Functional office spaces with modern aesthetics.</p></div></div>
-        <div class="project"><img src="renovatedHeritage.jpg" alt="Renovated Heritage"><div><h3>Heritage Renovation</h3><p>Preserving tradition with contemporary upgrades.</p></div></div>
-        <div class="project"><img src="duplexDesign.webp" alt="Duplex Design"><div><h3>Duplex Design</h3><p>Stylish multi-floor homes with efficient planning.</p></div></div>
+      <h2>Our Projects</h2>
+      <div class="projects-list">
+        <div class="project-box">Project 1 (Image / Description)</div>
+        <div class="project-box">Project 2 (Image / Description)</div>
+        <div class="project-box">Project 3 (Image / Description)</div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
-      <h2>Talk with Our Expert</h2>
-      <p>Fill out the form and our team will contact you shortly.</p>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <div class="contact-form">
+        <label for="custName">Name</label>
+        <input type="text" id="custName" placeholder="Your Name" />
+        <label for="custMobile">Mobile</label>
+        <input type="text" id="custMobile" placeholder="Your Mobile Number" />
+        <label for="custMessage">Requirement</label>
+        <textarea id="custMessage" rows="4" placeholder="What do you need?"></textarea>
+        <button id="sendWhatsApp">Talk to Expert on WhatsApp</button>
+      </div>
     </section>
 
-    <section class="form-section">
-      <form onsubmit="event.preventDefault(); alert('Form submitted!');">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Contact Number" required>
-        <select required>
-          <option value="">Select Service</option>
-          <option value="2d">2D Vastu Plan</option>
-          <option value="3d">3D Walkthrough</option>
-          <option value="estimation">Estimation</option>
-          <option value="interior">Interior / Exterior</option>
-          <option value="approval">Plan Approval</option>
-          <option value="renovation">Renovation</option>
-          <option value="construction">Construction</option>
-        </select>
-        <textarea placeholder="Message"></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </section>
-  </main>
+    <footer>
+      <p>Contact: 78250 57008 | Email: fcaconstruction2@gmail.com</p>
+      <p>© 2025 Friends Construction and Architect. All rights reserved.</p>
+    </footer>
 
-  <footer>
-    &copy; 2025 Friends Construction and Architect | Contact: 78250 57008 | Email: fcaconstruction2@gmail.com
-  </footer>
+    <script>
+      document.getElementById("sendWhatsApp").addEventListener("click", function () {
+        let name = document.getElementById("custName").value.trim();
+        let mobile = document.getElementById("custMobile").value.trim();
+        let message = document.getElementById("custMessage").value.trim();
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleButton = document.getElementById("themeToggle");
-      toggleButton.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
-        toggleButton.textContent = document.body.classList.contains("dark-theme") ? "☀️ Light" : "🌙 Theme";
+        if (!name || !mobile || !message) {
+          alert("Please fill all fields before contacting via WhatsApp.");
+          return;
+        }
+
+        let yourNumber = "919629982500"; // ✅ WhatsApp number with country code (India)
+
+        let fullMessage = `Hello, a new customer has submitted their details:\n\nName: ${name}\nMobile: ${mobile}\nRequirement: ${message}`;
+
+        let whatsappUrl = `https://wa.me/${yourNumber}?text=${encodeURIComponent(fullMessage)}`;
+        window.open(whatsappUrl, "_blank");
       });
-    });
-  </script>
-        <script>
-  function toggleMenu() {
-    const menu = document.getElementById("dropdownMenu");
-    menu.style.display = (menu.style.display === "block") ? "none" : "block";
-  }
+    </script>
 
-  document.addEventListener("click", function(event) {
-    const menu = document.getElementById("dropdownMenu");
-    const icon = document.querySelector(".menu-icon");
-    if (!icon.contains(event.target) && !menu.contains(event.target)) {
-      menu.style.display = "none";
-    }
-  });
-</script>
-        <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const testimonials = document.querySelectorAll("#testimonials .testimonial-box");
-
-    testimonials.forEach((box) => {
-      box.addEventListener("click", () => {
-        box.classList.toggle("selected-testimonial");
-      });
-    });
-  });
-</script>
-
-
-
-</body>
+  </body>
 </html>
-
-  
-
-
