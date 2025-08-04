@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friends Construction and Architect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(to right, #012840, #04619f);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    .company-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.2rem, 4vw, 2.5rem);
+      font-weight: 600;
+      text-align: center;
+      color: #ffffff;
+      flex: 1;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero {
+      background: url('construction%20.jpeg') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      border-radius: 8px;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .projects-grid, .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .project, .service {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .project img, .service img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+
+    .project div, .service div {
+      padding: 1rem;
+    }
+
+    .contact {
+      background: #012840;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .form-section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-section input, .form-section select, .form-section textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-section button {
+      background: #04619f;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #000;
+      color: #aaa;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .company-name {
+        margin: 10px 0;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Logo" />
+    <div class="company-name">Friends Construction and Architect</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>We Build Dreams Into Reality</h1>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a leading construction and architectural firm delivering high-quality infrastructure solutions across Tamil Nadu, Kerala, and Karnataka. From concept to completion, our goal is to bring your dream spaces to life.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service">
+        <img src="2dplan.png" alt="2D Vastu Plan">
+        <div><h3>2D Vastu Plan</h3><p>Precise vastu-compliant floor planning.</p></div>
+      </div>
+      <div class="service">
+        <img src="3dwalkthrough.jpeg" alt="3D Walkthrough">
+        <div><h3>3D Walkthrough</h3><p>Immersive design previews before construction.</p></div>
+      </div>
+      <div class="service">
+        <img src="Estimation.jpeg" alt="Estimation">
+        <div><h3>Estimation</h3><p>Accurate budgeting for your construction needs.</p></div>
+      </div>
+      <div class="service">
+        <img src="Interior .jpeg" alt="Interior/Exterior">
+        <div><h3>Interior & Exterior</h3><p>Elegant design solutions for every space.</p></div>
+      </div>
+      <div class="service">
+        <img src="PlanApproval.jpeg" alt="Plan Approval">
+        <div><h3>Plan Approval</h3><p>Get your plans approved swiftly and efficiently.</p></div>
+      </div>
+      <div class="service">
+        <img src="Renovation.jpeg" alt="Renovation">
+        <div><h3>Renovation</h3><p>Modernize your space with our expert remodeling.</p></div>
+      </div>
+      <div class="service">
+        <img src="Structural.jpeg" alt="Structural Drawings">
+        <div><h3>Structural Drawings</h3><p>Engineered blueprints that ensure safety and strength.</p></div>
+      </div>
+      <div class="service">
+        <img src="construction .jpeg" alt="Construction">
+        <div><h3>Construction</h3><p>Reliable full-scale construction from start to finish.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <img src="commercialbuilding.jpeg" alt="Commercial Building">
+        <div><h3>Commercial Building</h3><p>Modern commercial structures with smart architecture.</p></div>
+      </div>
+      <div class="project">
+        <img src="villa.JPG" alt="Villa">
+        <div><h3>Villa Design</h3><p>Elegant private villas tailored to lifestyle needs.</p></div>
+      </div>
+      <div class="project">
+        <img src="apartment.JPG" alt="Apartment">
+        <div><h3>Apartment Projects</h3><p>High-rise homes with comfort and convenience.</p></div>
+      </div>
+      <div class="project">
+        <img src="officeDesign.jpeg" alt="Office Design">
+        <div><h3>Office Design</h3><p>Functional office spaces with modern aesthetics.</p></div>
+      </div>
+      <div class="project">
+        <img src="renovatedHeritage.jpeg" alt="Renovated Heritage">
+        <div><h3>Heritage Renovation</h3><p>Preserving tradition with contemporary upgrades.</p></div>
+      </div>
+      <div class="project">
+        <img src="duplexDesign.webp" alt="Duplex Design">
+        <div><h3>Duplex Design</h3><p>Stylish multi-floor homes with efficient planning.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Talk with Our Expert</h2>
+    <p>Fill out the form and our team will contact you shortly.</p>
+  </section>
+
+  <section class="form-section">
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Contact Number" required>
+      <select required>
+        <option value="">Select Service</option>
+        <option value="2d">2D Vastu Plan</option>
+        <option value="3d">3D Walkthrough</option>
+        <option value="estimation">Estimation</option>
+        <option value="interior">Interior / Exterior</option>
+        <option value="approval">Plan Approval</option>
+        <option value="renovation">Renovation</option>
+        <option value="construction">Construction</option>
+      </select>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Friends Construction and Architect | Contact: 78250 57008 | Email: fcaconstruction2@gmail.com
+  </footer>
+</body>
+</html>
