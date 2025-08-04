@@ -198,8 +198,6 @@ body.dark-theme footer {
 
 <div class="header-container">
   <div class="header-bg"></div>
-<div class="header-container">
-  <div class="header-bg"></div>
   <header>
   <!-- Theme toggle button -->
   <button id="themeToggle" style="position: absolute; top: 1rem; right: 1rem; z-index: 2; background: rgba(255,255,255,0.2); border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; color: white; font-weight: bold;">
@@ -225,13 +223,14 @@ body.dark-theme footer {
     </div>
 
     <!-- Navigation -->
-    <nav style="margin-top: 1.2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-      <a href="#home" style="color: black; text-decoration: none; font-weight: 600; background: rgba(255,255,255,0.7); padding: 0.4rem 0.8rem; border-radius: 4px;">Home</a>
-      <a href="#about" style="color: black; text-decoration: none; font-weight: 600; background: rgba(255,255,255,0.7); padding: 0.4rem 0.8rem; border-radius: 4px;">About Us</a>
-      <a href="#services" style="color: black; text-decoration: none; font-weight: 600; background: rgba(255,255,255,0.7); padding: 0.4rem 0.8rem; border-radius: 4px;">Services</a>
-      <a href="#projects" style="color: black; text-decoration: none; font-weight: 600; background: rgba(255,255,255,0.7); padding: 0.4rem 0.8rem; border-radius: 4px;">Projects</a>
-      <a href="#contact" style="color: black; text-decoration: none; font-weight: 600; background: rgba(255,255,255,0.7); padding: 0.4rem 0.8rem; border-radius: 4px;">Contact</a>
-    </nav>
+   <nav>
+  <a href="#home" class="nav-link">Home</a>
+  <a href="#about" class="nav-link">About Us</a>
+  <a href="#services" class="nav-link">Services</a>
+  <a href="#projects" class="nav-link">Projects</a>
+  <a href="#contact" class="nav-link">Contact</a>
+</nav>
+
   </div>
   <section id="about">
     <h2>About Us</h2>
@@ -346,6 +345,7 @@ body.dark-theme footer {
 
 </body>
 </html>
+
 
 
 
