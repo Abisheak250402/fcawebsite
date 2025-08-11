@@ -11,6 +11,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 <style>
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none; /* hidden by default */
+  background-color: #04619f;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 9999;
+}
+
+#backToTop:hover {
+  background-color: #023e66;
+}
+
 /* Initial state - hidden and shifted down */
 .animate-on-scroll {
   opacity: 0;
@@ -1030,8 +1051,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 </script>
-</body>
+<script>
+  // Get the button
+const backToTopButton = document.getElementById("backToTop");
+
+// Show button after scrolling down 300px
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+});
+
+// Smooth scroll to top when button clicked
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
+
+</script>
+</body> <button id="backToTop" title="Go to top">⬆️</button>
+
 </html>
+
 
 
 
