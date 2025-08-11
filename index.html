@@ -72,6 +72,10 @@ p {
 .testimonial-box {
     cursor: pointer;
     transition: all 0.3s ease;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: black;
 }
 .testimonial-box:hover {
     transform: scale(1.02);
@@ -80,6 +84,11 @@ p {
 .selected-testimonial {
     border: 2px solid #04619f;
     background-color: #e6f4ff;
+}
+
+/* Italic style for testimonial text */
+.testimonial-box p {
+    font-style: italic;
 }
 
 /* --- Menu --- */
@@ -293,10 +302,15 @@ body.dark-theme #testimonials {
 }
 
 body.dark-theme #testimonials .testimonial-box {
-  background: #333; /* Dark background for testimonial boxes */
-  color: #eee; /* Light text */
+  background: #2a2a2a; /* Dark background */
+  color: #eee !important; /* Light text, important to override inline styles */
 }
 
+/* Make testimonial text inside boxes italic in dark mode and visible */
+body.dark-theme #testimonials .testimonial-box p {
+  font-style: italic;
+  color: #ddd !important;
+}
 
 /* Service, project and form backgrounds + text */
 body.dark-theme .service,
@@ -335,20 +349,10 @@ body.dark-theme #achievements p {
     color: #eee !important;
 }
 
-/* Testimonials text */
-body.dark-theme #testimonials .testimonial-box {
-    background: #2a2a2a;
-    color: #eee;
-}
-
 /* Dropdown menu in dark mode */
 body.dark-theme .dropdown-menu {
     background: rgba(0, 0, 0, 0.9);
 }
-#testimonials .testimonial-box p {
-  font-style: italic;
-}
-
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
@@ -542,6 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
