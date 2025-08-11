@@ -6,9 +6,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Friends Construction and Architect - We build dreams into reality across Tamil Nadu, Kerala, and Karnataka with 2D/3D plans, construction, interiors, and more.">
 <title>Friends Construction and Architect</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<!-- Google Fonts: Montserrat (headings) + Roboto (body) + Orbitron (header) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 <style>
+/* --- Updated Font Styling --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #04619f;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.2px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Keep header fonts intact */
+.header-container, .header-container * {
+    font-family: 'Orbitron', sans-serif !important;
+    color: white !important;
+}
+
 /* --- Testimonial Styling --- */
 .testimonial-box {
     cursor: pointer;
@@ -134,13 +165,13 @@ section {
 }
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* exactly 3 columns */
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* keep projects responsive */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
 }
 
@@ -429,6 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
