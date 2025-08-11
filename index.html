@@ -11,169 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 <style>
-#testimonials {
-  width: 100vw;
-  padding: 3rem 1rem;
+/* Reset some defaults */
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
   background: #f7f7f7;
-  overflow: hidden; /* prevent horizontal scroll */
-  position: relative;
+  color: #000;
 }
 
-.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: none; /* override if any max-width */
-  gap: 2rem;
-  overflow: visible;
-}
-
-.carousel-item {
-  flex: 0 0 33.333%; /* each takes one-third of screen */
-  max-width: 33.333%;
-  text-align: center;
-  position: relative;
-  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
-}
-
-.carousel-item.blur {
-  filter: blur(3px);
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.carousel-item.active {
-  flex: 0 0 33.333%;
-  max-width: 33.333%;
-  opacity: 1;
-  filter: none;
-  pointer-events: auto;
-  transform: scale(1.05);
-  cursor: pointer;
-}
-
-#achievements div > h3 {
-    margin-bottom: 0.3rem; /* reduce space below the number */
-}
-
-#achievements div > p {
-    margin-top: 0; /* remove top margin of description */
-}
-
-#achievements {
-    color: white; /* optional to make all text white by default */
-}
-
-#achievements h2 {
-    color: white !important;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-}
-
-#achievements h3 {
-    color: white;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-}
-
-#achievements p {
-    color: white;
-}
-
-/* --- Updated Font Styling --- */
-body {
-    font-family: 'Roboto', sans-serif;
-    color: black;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    color: black;
-}
-
-h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    letter-spacing: 1.2px;
-}
-
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-/* Keep header fonts intact */
-.header-container, .header-container * {
-    font-family: 'Orbitron', sans-serif !important;
-    color: white !important;
-}
-
-/* --- Testimonial Styling --- */
-.testimonial-box {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: white;
-    border-radius: 10px;
-    padding: 1.5rem;
-    color: black;
-}
-.testimonial-box:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-.selected-testimonial {
-    border: 2px solid #04619f;
-    background-color: #e6f4ff;
-}
-
-/* Italic style for testimonial text */
-.testimonial-box p {
-    font-style: italic;
-}
-
-/* --- Menu --- */
-.menu-wrapper {
-    position: absolute;
-    top: 75%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.menu-icon {
-    font-size: 26px;
-    color: white;
-    cursor: pointer;
-    text-shadow: 1px 1px 4px black;
-}
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    right: 0;
-    bottom: 35px;
-    background: rgba(0, 0, 0, 0.9);
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-.dropdown-menu a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    font-weight: 600;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.dropdown-menu a:last-child {
-    border-bottom: none;
-}
-.dropdown-menu a:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* --- Header --- */
+/* Header container and background */
 .header-container {
     position: relative;
     height: 250px;
@@ -201,15 +49,70 @@ header {
     justify-content: space-between;
     flex-wrap: wrap;
     color: white;
+    text-align: center;
+    flex-direction: column;
 }
 .company-name {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(1.2rem, 4vw, 2.5rem);
-    font-weight: 600;
-    text-align: center;
-    color: #ffffff;
-    flex: 1;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    text-shadow: 2px 2px 10px black;
+    margin: 0;
 }
+.tagline {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 0.2rem;
+    text-shadow: 1px 1px 6px black;
+}
+.contact-info {
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+    text-shadow: 1px 1px 5px black;
+}
+
+/* Menu */
+.menu-wrapper {
+    position: absolute;
+    top: 75%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+.menu-icon {
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px black;
+    user-select: none;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 35px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    user-select: none;
+}
+.dropdown-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Theme toggle button */
 #themeToggle {
     position: fixed;
     top: 1rem;
@@ -222,268 +125,56 @@ header {
     cursor: pointer;
     color: white;
     font-weight: bold;
+    user-select: none;
 }
 
-/* --- Nav --- */
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-nav a {
-    color: white;
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: 600;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-}
-
-/* --- Sections --- */
-section {
-    padding: 3rem 2rem;
-    max-width: 1100px;
-    margin: auto;
-}
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-@media (max-width: 900px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-.project, .service {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.project:hover, .service:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
-.project img, .service img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    filter: brightness(0.8);
-}
-.project div, .service div {
-    padding: 1rem;
-}
-
-/* --- Contact Section --- */
-.contact {
-    background: #012840;
-    color: white;
-    text-align: center;
-    padding: 2rem;
-}
-.form-section {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 2rem auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-.form-section input, .form-section select, .form-section textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-.form-section button {
-    background: #04619f;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* --- Footer --- */
-footer {
-    background: #000;
-    color: #aaa;
-    text-align: center;
-    padding: 1rem;
-}
-
-/* --- Dark Theme text colors fix --- */
+/* Dark theme */
 body.dark-theme {
     background-color: #111;
     color: #eee;
 }
-
-/* Header nav links */
-body.dark-theme header nav a {
-    color: #ddd;
+body.dark-theme header {
+    color: white;
 }
-body.dark-theme #testimonials {
-  color: #eee; /* Make text light */
-}
-
-body.dark-theme #testimonials .testimonial-box {
-  background: #2a2a2a; /* Dark background */
-  color: #eee !important; /* Light text, important to override inline styles */
-}
-
-/* Make testimonial text inside boxes italic in dark mode and visible */
-body.dark-theme #testimonials .testimonial-box p {
-  font-style: italic;
-  color: #ddd !important;
-}
-
-/* Service, project and form backgrounds + text */
-body.dark-theme .service,
-body.dark-theme .project,
-body.dark-theme .form-section {
-    background: #1f1f1f;
-    color: #eee;
-    box-shadow: 0 2px 12px rgba(255,255,255,0.1);
-}
-
-/* Footer */
-body.dark-theme footer {
-    background: #000;
-    color: #888;
-}
-
-/* Main content headings and paragraphs */
-body.dark-theme main h1,
-body.dark-theme main h2,
-body.dark-theme main h3,
-body.dark-theme main h4,
-body.dark-theme main h5,
-body.dark-theme main h6,
-body.dark-theme main p,
-body.dark-theme main section,
-body.dark-theme main div,
-body.dark-theme main span {
-    color: #eee;
-}
-
-/* Achievements section specific fix (to override inline styles if any) */
-body.dark-theme #achievements,
-body.dark-theme #achievements h2,
-body.dark-theme #achievements h3,
-body.dark-theme #achievements p {
-    color: #eee !important;
-}
-
-/* Dropdown menu in dark mode */
 body.dark-theme .dropdown-menu {
     background: rgba(0, 0, 0, 0.9);
 }
 
-/* --- Responsive --- */
+/* Responsive Header */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        height: auto;
+        padding: 2rem 1rem;
     }
-    .company-name {
-        margin: 10px 0;
-    }
-    nav {
-        flex-direction: column;
-        gap: 10px;
+    .menu-wrapper {
+        position: static;
+        margin-top: 1rem;
+        transform: none;
     }
 }
-    /* Testimonials text - default and dark theme */
-#testimonials .testimonial-box p {
-  font-style: italic;
-  color: #333; /* default dark text */
-}
-
-body.dark-theme #testimonials .testimonial-box p {
-  color: #ddd !important;  /* light color text in dark mode, important to override */
-}
-
-/* Testimonial box background in dark mode */
-body.dark-theme #testimonials .testimonial-box {
-  background-color: #2a2a2a !important;
-  color: #eee !important;
-}
-body.dark-theme #testimonials h2 {
-  color: #ff4d4d; /* bright red */
-}
-/* Make testimonial section full width */
-#testimonials {
-  width: 100vw;          /* full viewport width */
-  max-width: 100vw;      /* remove max-width */
-  margin: 0;             /* no auto margin */
-  padding: 3rem 1rem;
-  background: #f7f7f7;
-  overflow: hidden;
-  text-align: center;
-  position: relative;
-}
-
-.testimonial-carousel {
-  max-width: none;       /* remove max-width */
-  width: 100%;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.testimonial-wrapper {
-  max-width: none;       /* remove max-width */
-  width: 100%;
-  justify-content: center;
-  gap: 2rem;
-}
-
 
 </style>
 </head>
-    
 
 <body>
 
 <div class="header-container">
     <div class="header-bg"></div>
     <header>
-        <div style="width: 100%; text-align: center;">
-            <div class="company-name" style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-family: 'Orbitron', sans-serif; font-weight: 700; text-shadow: 2px 2px 10px black;">
-                Friends Construction and Architect
-            </div>
-            <div class="tagline" style="font-size: 1.1rem; font-weight: 400; margin-top: 0.2rem; text-shadow: 1px 1px 6px black;">
-                We Build Dreams Into Reality
-            </div>
-            <div class="contact-info" style="font-size: 0.95rem; margin-top: 0.3rem; text-shadow: 1px 1px 5px black;">
-                📍 All over Tamil Nadu | 📞 78250 57008 | 📧 fcaconstruction2@gmail.com
-            </div>
-            <div class="menu-wrapper">
-                <div class="menu-icon" onclick="toggleMenu()">☰</div>
-                <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="#home">Home</a>
-                    <a href="#about">About Us</a>
-                    <a href="#services">Services</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
+        <div class="company-name">Friends Construction and Architect</div>
+        <div class="tagline">We Build Dreams Into Reality</div>
+        <div class="contact-info">📍 All over Tamil Nadu | 📞 78250 57008 | 📧 fcaconstruction2@gmail.com</div>
+        <div class="menu-wrapper">
+            <div class="menu-icon" onclick="toggleMenu()">☰</div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </header>
@@ -491,330 +182,379 @@ body.dark-theme #testimonials h2 {
 
 <!-- Theme Toggle Button -->
 <button id="themeToggle">Theme</button>
-
 <main>
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>We are a leading construction and architectural firm delivering high-quality infrastructure solutions across Tamil Nadu, Kerala, and Karnataka. From concept to completion, our goal is to bring your dream spaces to life.</p>
-    </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service"><img src="2dplan.png" alt="2D Vastu Plan"><div><h3>2D VASTU PLAN</h3><p>Precise vastu-compliant floor planning.</p></div></div>
-            <div class="service"><img src="3dwalkthrough.jpeg" alt="3D Walkthrough"><div><h3>3D WALK THROUGH</h3><p>Immersive design previews before construction.</p></div></div>
-            <div class="service"><img src="Estimation.jpeg" alt="Estimation"><div><h3>ESTIMATION</h3><p>Accurate budgeting for your construction needs.</p></div></div>
-            <div class="service"><img src="Interior .jpeg" alt="Interior/Exterior"><div><h3>INTERIOR & EXTERIOR</h3><p>Elegant design solutions for every space.</p></div></div>
-            <div class="service"><img src="PlanApproval.jpeg" alt="Plan Approval"><div><h3>PLAN APPROVAL</h3><p>Get your plans approved swiftly and efficiently.</p></div></div>
-            <div class="service"><img src="Renovation .jpeg" alt="Renovation"><div><h3>RENOVATION</h3><p>Modernize your space with our expert remodeling.</p></div></div>
-            <div class="service"><img src="Structural .jpeg" alt="Structural Drawings"><div><h3>STRUCTUAL DRAWINGS</h3><p>Engineered blueprints that ensure safety and strength.</p></div></div>
-            <div class="service"><img src="Construction.jpg" alt="Construction"><div><h3>CONSTRUCTION</h3><p>Complete construction from start to finish.</p></div></div>
-        </div>
-    </section>
+  <!-- About Section -->
+  <section id="about" style="max-width:1100px; margin:auto; padding:3rem 2rem;">
+    <h2>About Us</h2>
+    <p>We are a leading construction and architectural firm delivering high-quality infrastructure solutions across Tamil Nadu, Kerala, and Karnataka. From concept to completion, our goal is to bring your dream spaces to life.</p>
+  </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements" style="background:#012840; color:white; padding:3rem 2rem; text-align:center;">
-        <h2 style="margin-bottom: 2rem;">Our Achievements</h2>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
-            <div style="flex:1 1 200px;">
-                <h3 style="font-size:2rem;">12+</h3>
-                <p>Projects Completed</p>
-            </div>
-            <div style="flex:1 1 200px;">
-                <h3 style="font-size:2rem;">12+</h3>
-                <p>Happy Clients</p>
-            </div>
-            <div style="flex:1 1 200px;">
-                <h3 style="font-size:2rem;">3 States</h3>
-                <p>Tamil Nadu, Kerala, Karnataka</p>
-            </div>
-        </div>
-    </section>
-
-   <!-- START Testimonials Section -->
-<section id="testimonials" style="padding:3rem 2rem; background:#f7f7f7; text-align:center; position: relative; max-width: 800px; margin: auto;">
-
-  <h2 id="testimonialHeading" style="margin-bottom:2rem; transition: color 0.3s ease;">What Our Clients Say</h2>
-
-  <div class="testimonial-carousel">
-    <button class="carousel-btn prev-btn" aria-label="Previous testimonial">&#10094;</button>
-
-    <div class="testimonial-wrapper">
-      <!-- Left blurred preview -->
-      <div class="testimonial-preview left-preview">
-        <div class="testimonial-content blurred" id="leftTestimonial">
-          <img src="Client1.jpg" alt="Client photo" class="client-photo" />
-          <p class="client-review"></p>
-          <h4 class="client-name-location"></h4>
+  <!-- Services Section -->
+  <section id="services" style="max-width:1100px; margin:auto; padding:3rem 2rem;">
+    <h2>Our Services</h2>
+    <div class="services-grid" style="display:grid; grid-template-columns:repeat(3, 1fr); gap:2rem;">
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="2dplan.png" alt="2D Vastu Plan" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>2D VASTU PLAN</h3>
+          <p>Precise vastu-compliant floor planning.</p>
         </div>
       </div>
-
-      <!-- Center main testimonial -->
-      <div class="testimonial-main" id="mainTestimonial">
-        <img src="Client1.jpg" alt="Client photo" class="client-photo" />
-        <p class="client-review"></p>
-        <h4 class="client-name-location"></h4>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="3dwalkthrough.jpeg" alt="3D Walkthrough" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>3D WALK THROUGH</h3>
+          <p>Immersive design previews before construction.</p>
+        </div>
       </div>
-
-      <!-- Right blurred preview -->
-      <div class="testimonial-preview right-preview">
-        <div class="testimonial-content blurred" id="rightTestimonial">
-          <img src="Client1.jpg" alt="Client photo" class="client-photo" />
-          <p class="client-review"></p>
-          <h4 class="client-name-location"></h4>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="Estimation.jpeg" alt="Estimation" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>ESTIMATION</h3>
+          <p>Accurate budgeting for your construction needs.</p>
+        </div>
+      </div>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="Interior .jpeg" alt="Interior/Exterior" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>INTERIOR & EXTERIOR</h3>
+          <p>Elegant design solutions for every space.</p>
+        </div>
+      </div>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="PlanApproval.jpeg" alt="Plan Approval" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>PLAN APPROVAL</h3>
+          <p>Get your plans approved swiftly and efficiently.</p>
+        </div>
+      </div>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="Renovation .jpeg" alt="Renovation" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>RENOVATION</h3>
+          <p>Modernize your space with our expert remodeling.</p>
+        </div>
+      </div>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="Structural .jpeg" alt="Structural Drawings" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>STRUCTURAL DRAWINGS</h3>
+          <p>Engineered blueprints that ensure safety and strength.</p>
+        </div>
+      </div>
+      <div class="service" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="Construction.jpg" alt="Construction" style="width:100%; height:180px; object-fit:cover; filter:brightness(0.8);" />
+        <div style="padding:1rem;">
+          <h3>CONSTRUCTION</h3>
+          <p>Complete construction from start to finish.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <button class="carousel-btn next-btn" aria-label="Next testimonial">&#10095;</button>
-  </div>
+  <!-- Achievements Section -->
+  <section id="achievements" style="background:#012840; color:white; padding:3rem 2rem; text-align:center; max-width:1100px; margin:auto;">
+    <h2 style="margin-bottom: 2rem;">Our Achievements</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
+      <div style="flex:1 1 200px;">
+        <h3 style="font-size:2rem;">12+</h3>
+        <p>Projects Completed</p>
+      </div>
+      <div style="flex:1 1 200px;">
+        <h3 style="font-size:2rem;">12+</h3>
+        <p>Happy Clients</p>
+      </div>
+      <div style="flex:1 1 200px;">
+        <h3 style="font-size:2rem;">3 States</h3>
+        <p>Tamil Nadu, Kerala, Karnataka</p>
+      </div>
+    </div>
+  </section>
 
-</section>
-<!-- END Testimonials Section -->
+  <!-- START Testimonials Section -->
+  <section id="testimonials" style="max-width:900px; margin:auto; padding:3rem 1rem; position: relative; background:#f7f7f7;">
 
+    <h2 id="testimonialHeading" style="text-align:center; margin-bottom:2rem; font-family: 'Montserrat', sans-serif; font-weight: 700; color:#04619f;">What Our Clients Say</h2>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project"><img src="commercialbuilding.jpeg" alt="Commercial Building"><div><h3>Commercial Building</h3><p>Modern commercial structures with smart architecture.</p></div></div>
-            <div class="project"><img src="villa.jpg" alt="Villa"><div><h3>Villa Design</h3><p>Elegant private villas tailored to lifestyle needs.</p></div></div>
-            <div class="project"><img src="apartment.jpeg" alt="Apartment"><div><h3>Apartment Projects</h3><p>High-rise homes with comfort and convenience.</p></div></div>
-            <div class="project"><img src="officeDesign.jpg" alt="Office Design"><div><h3>Office Design</h3><p>Functional office spaces with modern aesthetics.</p></div></div>
-            <div class="project"><img src="renovatedHeritage.jpg" alt="Renovated Heritage"><div><h3>Renovated Heritage</h3><p>Preserving tradition with contemporary upgrades.</p></div></div>
-            <div class="project"><img src="duplexDesign.webp" alt="Duplex Design"><div><h3>Duplex Design</h3><p>Stylish multi-floor homes with efficient planning.</p></div></div>
+    <div class="testimonial-carousel" style="display:flex; align-items:center; justify-content:center; gap:1rem; user-select:none;">
+
+      <!-- Prev Button -->
+      <button class="carousel-btn prev-btn" aria-label="Previous testimonial" style="background:transparent; border:none; font-size:2.5rem; cursor:pointer; color:#04619f; user-select:none; padding:0 10px;">&#10094;</button>
+
+      <!-- Testimonial Wrapper -->
+      <div class="testimonial-wrapper" style="display:flex; align-items:center; gap:1rem; flex:1; max-width:700px; justify-content:center; position:relative;">
+
+        <!-- Left blurred preview -->
+        <div class="testimonial-preview left-preview" style="flex: 0 0 120px; opacity: 0.5; filter: blur(2px); border-radius: 10px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 1rem; user-select:none; cursor: default;">
+          <img src="Client1.jpg" alt="Client photo" class="client-photo" style="width:70px; height:70px; border-radius:50%; object-fit:cover; margin-bottom:1rem; border: 3px solid #04619f;" />
+          <p class="client-review" style="font-style: italic; font-size: 0.9rem; color: #333; min-height: 50px;">Sample left review text</p>
+          <h4 class="client-name-location" style="font-weight: 700; font-family: 'Montserrat', sans-serif; color: #04619f; font-size: 0.9rem; margin-top: 0;">- Client Left</h4>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2>Talk with Our Expert</h2>
-        <p>Fill out the form and our team will contact you shortly.</p>
-    </section>
+        <!-- Center main testimonial -->
+        <div class="testimonial-main" id="mainTestimonial" style="flex: 0 0 400px; background: white; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.15); padding: 2rem 1.5rem; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative; user-select: text;">
+          <img src="Client1.jpg" alt="Client photo" class="client-photo" style="width:70px; height:70px; border-radius:50%; object-fit:cover; margin-bottom:1rem; border: 3px solid #04619f;" />
+          <p class="client-review" style="font-style: italic; font-size: 1rem; color: #333; min-height: 60px;">Sample main review text</p>
+          <h4 class="client-name-location" style="font-weight: 700; font-family: 'Montserrat', sans-serif; color: #04619f; font-size: 1rem; margin-top: 0;">- Client Main</h4>
+        </div>
 
-    <!-- Form Section -->
-    <section class="form-section">
-        <form onsubmit="event.preventDefault(); alert('Form submitted!');">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Contact Number" required>
-            <select required>
-                <option value="">Select Service</option>
-                <option value="2d">2D Vastu Plan</option>
-                <option value="3d">3D Walkthrough</option>
-                <option value="estimation">Estimation</option>
-                <option value="interior">Interior / Exterior</option>
-                <option value="approval">Plan Approval</option>
-                <option value="renovation">Renovation</option>
-                <option value="construction">Construction</option>
-            </select>
-            <textarea placeholder="Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <!-- Right blurred preview -->
+        <div class="testimonial-preview right-preview" style="flex: 0 0 120px; opacity: 0.5; filter: blur(2px); border-radius: 10px; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 1rem; user-select:none; cursor: default;">
+          <img src="Client1.jpg" alt="Client photo" class="client-photo" style="width:70px; height:70px; border-radius:50%; object-fit:cover; margin-bottom:1rem; border: 3px solid #04619f;" />
+          <p class="client-review" style="font-style: italic; font-size: 0.9rem; color: #333; min-height: 50px;">Sample right review text</p>
+          <h4 class="client-name-location" style="font-weight: 700; font-family: 'Montserrat', sans-serif; color: #04619f; font-size: 0.9rem; margin-top: 0;">- Client Right</h4>
+        </div>
+
+      </div>
+
+      <!-- Next Button -->
+      <button class="carousel-btn next-btn" aria-label="Next testimonial" style="background:transparent; border:none; font-size:2.5rem; cursor:pointer; color:#04619f; user-select:none; padding:0 10px;">&#10095;</button>
+
+    </div>
+  </section>
+  <!-- END Testimonials Section -->
+  <!-- Projects Section -->
+  <section id="projects" style="max-width:1100px; margin:auto; padding:3rem 2rem;">
+    <h2>Projects</h2>
+    <div class="projects-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;">
+      <div class="project" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="commercialbuilding.jpeg" alt="Commercial Building" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:1rem;">
+          <h3>Commercial Building</h3>
+          <p>Modern commercial structures with smart architecture.</p>
+        </div>
+      </div>
+      <div class="project" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="villa.jpg" alt="Villa" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:1rem;">
+          <h3>Villa Design</h3>
+          <p>Elegant private villas tailored to lifestyle needs.</p>
+        </div>
+      </div>
+      <div class="project" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="apartment.jpeg" alt="Apartment" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:1rem;">
+          <h3>Apartment Projects</h3>
+          <p>High-rise homes with comfort and convenience.</p>
+        </div>
+      </div>
+      <div class="project" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="officeDesign.jpg" alt="Office Design" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:1rem;">
+          <h3>Office Design</h3>
+          <p>Functional office spaces with modern aesthetics.</p>
+        </div>
+      </div>
+      <div class="project" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="renovatedHeritage.jpg" alt="Renovated Heritage" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:1rem;">
+          <h3>Renovated Heritage</h3>
+          <p>Preserving tradition with contemporary upgrades.</p>
+        </div>
+      </div>
+      <div class="project" style="background:white; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1); overflow:hidden; cursor:pointer; transition:transform 0.3s ease;">
+        <img src="duplexDesign.webp" alt="Duplex Design" style="width:100%; height:200px; object-fit:cover;" />
+        <div style="padding:1rem;">
+          <h3>Duplex Design</h3>
+          <p>Stylish multi-floor homes with efficient planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact" style="max-width:700px; margin:auto; padding:3rem 1rem; text-align:center;">
+    <h2>Talk with Our Expert</h2>
+    <p>Fill out the form and our team will contact you shortly.</p>
+  </section>
+
+  <!-- Form Section -->
+  <section class="form-section" style="max-width:700px; margin:auto; padding:1rem;">
+    <form onsubmit="event.preventDefault(); alert('Form submitted!');" style="display:flex; flex-direction:column; gap:1rem;">
+      <input type="text" placeholder="Your Name" required style="padding:0.8rem; border-radius:6px; border:1px solid #ccc; font-size:1rem;" />
+      <input type="email" placeholder="Your Email" required style="padding:0.8rem; border-radius:6px; border:1px solid #ccc; font-size:1rem;" />
+      <input type="text" placeholder="Contact Number" required style="padding:0.8rem; border-radius:6px; border:1px solid #ccc; font-size:1rem;" />
+      <select required style="padding:0.8rem; border-radius:6px; border:1px solid #ccc; font-size:1rem;">
+        <option value="">Select Service</option>
+        <option value="2d">2D Vastu Plan</option>
+        <option value="3d">3D Walkthrough</option>
+        <option value="estimation">Estimation</option>
+        <option value="interior">Interior / Exterior</option>
+        <option value="approval">Plan Approval</option>
+        <option value="renovation">Renovation</option>
+        <option value="construction">Construction</option>
+      </select>
+      <textarea placeholder="Message" rows="4" style="padding:0.8rem; border-radius:6px; border:1px solid #ccc; font-size:1rem;"></textarea>
+      <button type="submit" style="padding:1rem; background:#04619f; color:white; border:none; border-radius:6px; font-size:1.1rem; cursor:pointer; transition:background 0.3s ease;">Send</button>
+    </form>
+  </section>
+
 </main>
 
-<footer>
-    &copy; 2025 Friends Construction and Architect | Contact: 78250 57008 | Email: fcaconstruction2@gmail.com
+<footer style="text-align:center; padding:1rem 0; background:#012840; color:white; font-size:0.9rem; margin-top:2rem;">
+  &copy; 2025 Friends Construction and Architect | Contact: 78250 57008 | Email: fcaconstruction2@gmail.com
 </footer>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+  // Theme toggle button functionality
+  document.addEventListener("DOMContentLoaded", () => {
     const toggleButton = document.getElementById("themeToggle");
     toggleButton.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
-        toggleButton.textContent = document.body.classList.contains("dark-theme") ? "Light" : "Theme";
+      document.body.classList.toggle("dark-theme");
+      toggleButton.textContent = document.body.classList.contains("dark-theme") ? "Light" : "Theme";
     });
-});
+  });
 </script>
 
 <script>
-function toggleMenu() {
+  // Dropdown menu toggle
+  function toggleMenu() {
     const menu = document.getElementById("dropdownMenu");
     menu.style.display = (menu.style.display === "block") ? "none" : "block";
 
+    // Click outside to close menu
     document.addEventListener("click", function(event) {
-        const icon = document.querySelector(".menu-icon");
-        if (!icon.contains(event.target) && !menu.contains(event.target)) {
-            menu.style.display = "none";
-        }
+      const icon = document.querySelector(".menu-icon");
+      if (!icon.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = "none";
+      }
     });
-}
+  }
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const testimonials = document.querySelectorAll("#testimonials .testimonial-box");
-    testimonials.forEach((box) => {
-        box.addEventListener("click", () => {
-            box.classList.toggle("selected-testimonial");
-        });
-    });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const testimonialsData = [
-    {
-      photo: "Client1.jpg",
-      review: "Excellent planning and execution. The 3D walkthrough gave us clarity before construction. Highly recommended!",
-      nameLocation: "- Mr. AjithKumar, Tamil Nadu"
-    },
-    {
-      photo: "Client2.jpg",
-      review: "FCA handled our renovation with care and perfection. Felt very professional throughout.",
-      nameLocation: "- Mr. RajiniKanth, Tamil Nadu"
-    },
-    {
-      photo: "Client3.jpeg",
-      review: "From vastu planning to final touches, everything was smooth. Loved their team coordination.",
-      nameLocation: "- Mr.Joesph Vijay, Karnataka"
-    },
-    {
-      photo: "Client4.jpg",
-      review: "Timely delivery and quality workmanship. We are very satisfied with the construction of our villa.",
-      nameLocation: "- Mr. Rajesh, Kerala"
-    },
-    {
-      photo: "Client5.jpeg",
-      review: "Professional team with excellent customer service. Highly recommend FCA for any construction needs.",
-      nameLocation: "- Ms. Anitha, Tamil Nadu"
-    },
-    {
-      photo: "Client6.jpeg",
-      review: "The estimation and planning were very accurate. The team made the entire process stress-free.",
-      nameLocation: "- Mr. Kumar, Karnataka"
-    },
-    {
-      photo: "Client7.jpeg",
-      review: "Beautiful interior and exterior designs. The renovation exceeded our expectations!",
-      nameLocation: "- Mrs. Shalini, Kerala"
-    },
-    {
-      photo: "Client8.jpeg",
-      review: "Good communication and expert guidance from start to finish. Proud to recommend FCA.",
-      nameLocation: "- Mr. Varun, Tamil Nadu"
-    },
-    {
-      photo: "Client9.jpeg",
-      review: "High-quality structural drawings and precise execution. We trust FCA for all our projects.",
-      nameLocation: "- Ms. Priya, Karnataka"
+  // Testimonials carousel
+  document.addEventListener("DOMContentLoaded", () => {
+    const testimonialsData = [
+      {
+        photo: "Client1.jpg",
+        review: "Excellent planning and execution. The 3D walkthrough gave us clarity before construction. Highly recommended!",
+        nameLocation: "- Mr. AjithKumar, Tamil Nadu"
+      },
+      {
+        photo: "Client2.jpg",
+        review: "FCA handled our renovation with care and perfection. Felt very professional throughout.",
+        nameLocation: "- Mr. RajiniKanth, Tamil Nadu"
+      },
+      {
+        photo: "Client3.jpeg",
+        review: "From vastu planning to final touches, everything was smooth. Loved their team coordination.",
+        nameLocation: "- Mr. Joesph Vijay, Karnataka"
+      },
+      {
+        photo: "Client4.jpg",
+        review: "Timely delivery and quality workmanship. We are very satisfied with the construction of our villa.",
+        nameLocation: "- Mr. Rajesh, Kerala"
+      },
+      {
+        photo: "Client5.jpeg",
+        review: "Professional team with excellent customer service. Highly recommend FCA for any construction needs.",
+        nameLocation: "- Ms. Anitha, Tamil Nadu"
+      },
+      {
+        photo: "Client6.jpeg",
+        review: "The estimation and planning were very accurate. The team made the entire process stress-free.",
+        nameLocation: "- Mr. Kumar, Karnataka"
+      },
+      {
+        photo: "Client7.jpeg",
+        review: "Beautiful interior and exterior designs. The renovation exceeded our expectations!",
+        nameLocation: "- Mrs. Shalini, Kerala"
+      },
+      {
+        photo: "Client8.jpeg",
+        review: "Good communication and expert guidance from start to finish. Proud to recommend FCA.",
+        nameLocation: "- Mr. Varun, Tamil Nadu"
+      },
+      {
+        photo: "Client9.jpeg",
+        review: "High-quality structural drawings and precise execution. We trust FCA for all our projects.",
+        nameLocation: "- Ms. Priya, Karnataka"
+      }
+    ];
+
+    let currentIndex = 0;
+
+    const mainTestimonial = document.getElementById("mainTestimonial");
+    const leftTestimonial = document.getElementById("leftTestimonial");
+    const rightTestimonial = document.getElementById("rightTestimonial");
+
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    // Circular index helper
+    function getIndex(i) {
+      return (i + testimonialsData.length) % testimonialsData.length;
     }
-  ];
 
-  let currentIndex = 0;
+    // Update testimonial content function
+    function updateTestimonials() {
+      const leftIndex = getIndex(currentIndex - 1);
+      const rightIndex = getIndex(currentIndex + 1);
 
-  const leftReview = document.getElementById("leftReview");
-  const leftNameLocation = document.getElementById("leftNameLocation");
-  const rightReview = document.getElementById("rightReview");
-  const rightNameLocation = document.getElementById("rightNameLocation");
-  const mainReview = document.getElementById("mainReview");
-  const mainNameLocation = document.getElementById("mainNameLocation");
-  const mainTestimonial = document.getElementById("mainTestimonial");
-  const leftPhoto = document.querySelector(".left-preview .client-photo");
-  const rightPhoto = document.querySelector(".right-preview .client-photo");
-  const mainPhoto = document.querySelector("#mainTestimonial .client-photo");
+      // Left preview
+      leftTestimonial.querySelector("img").src = testimonialsData[leftIndex].photo;
+      leftTestimonial.querySelector("p").textContent = testimonialsData[leftIndex].review;
+      leftTestimonial.querySelector("h4").textContent = testimonialsData[leftIndex].nameLocation;
 
-  const prevBtn = document.querySelector(".prev-btn");
-  const nextBtn = document.querySelector(".next-btn");
+      // Right preview
+      rightTestimonial.querySelector("img").src = testimonialsData[rightIndex].photo;
+      rightTestimonial.querySelector("p").textContent = testimonialsData[rightIndex].review;
+      rightTestimonial.querySelector("h4").textContent = testimonialsData[rightIndex].nameLocation;
 
-  // Circular index helper
-  function getIndex(i) {
-    return (i + testimonialsData.length) % testimonialsData.length;
-  }
-
-  // Update testimonials content
-  function updateTestimonials() {
-    const leftIndex = getIndex(currentIndex - 1);
-    const rightIndex = getIndex(currentIndex + 1);
-
-    // Left preview
-    leftPhoto.src = testimonialsData[leftIndex].photo;
-    leftReview.textContent = testimonialsData[leftIndex].review;
-    leftNameLocation.textContent = testimonialsData[leftIndex].nameLocation;
-
-    // Right preview
-    rightPhoto.src = testimonialsData[rightIndex].photo;
-    rightReview.textContent = testimonialsData[rightIndex].review;
-    rightNameLocation.textContent = testimonialsData[rightIndex].nameLocation;
-
-    // Main testimonial
-    mainPhoto.src = testimonialsData[currentIndex].photo;
-    mainReview.textContent = testimonialsData[currentIndex].review;
-    mainNameLocation.textContent = testimonialsData[currentIndex].nameLocation;
-  }
-
-  updateTestimonials();
-
-  // Auto rotate every 8 seconds
-  let autoRotate = setInterval(() => {
-    currentIndex = getIndex(currentIndex + 1);
-    updateTestimonials();
-    removePopUp();
-  }, 8000);
-
-  // Manual buttons
-  nextBtn.addEventListener("click", () => {
-    currentIndex = getIndex(currentIndex + 1);
-    updateTestimonials();
-    resetAutoRotate();
-    removePopUp();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = getIndex(currentIndex - 1);
-    updateTestimonials();
-    resetAutoRotate();
-    removePopUp();
-  });
-
-  // Pop-up on main testimonial click
-  mainTestimonial.addEventListener("click", () => {
-    if (mainTestimonial.classList.contains("pop-up")) {
-      removePopUp();
-    } else {
-      mainTestimonial.classList.add("pop-up");
+      // Main testimonial
+      mainTestimonial.querySelector("img").src = testimonialsData[currentIndex].photo;
+      mainTestimonial.querySelector("p").textContent = testimonialsData[currentIndex].review;
+      mainTestimonial.querySelector("h4").textContent = testimonialsData[currentIndex].nameLocation;
     }
-  });
 
-  function removePopUp() {
-    mainTestimonial.classList.remove("pop-up");
-  }
+    updateTestimonials();
 
-  function resetAutoRotate() {
-    clearInterval(autoRotate);
-    autoRotate = setInterval(() => {
+    // Auto rotate every 8 seconds
+    let autoRotate = setInterval(() => {
       currentIndex = getIndex(currentIndex + 1);
       updateTestimonials();
       removePopUp();
     }, 8000);
-  }
-});
+
+    // Next button click
+    nextBtn.addEventListener("click", () => {
+      currentIndex = getIndex(currentIndex + 1);
+      updateTestimonials();
+      resetAutoRotate();
+      removePopUp();
+    });
+
+    // Prev button click
+    prevBtn.addEventListener("click", () => {
+      currentIndex = getIndex(currentIndex - 1);
+      updateTestimonials();
+      resetAutoRotate();
+      removePopUp();
+    });
+
+    // Pop-up effect toggle on main testimonial click
+    mainTestimonial.addEventListener("click", () => {
+      if (mainTestimonial.classList.contains("pop-up")) {
+        removePopUp();
+      } else {
+        mainTestimonial.classList.add("pop-up");
+      }
+    });
+
+    function removePopUp() {
+      mainTestimonial.classList.remove("pop-up");
+    }
+
+    function resetAutoRotate() {
+      clearInterval(autoRotate);
+      autoRotate = setInterval(() => {
+        currentIndex = getIndex(currentIndex + 1);
+        updateTestimonials();
+        removePopUp();
+      }, 8000);
+    }
+  });
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
