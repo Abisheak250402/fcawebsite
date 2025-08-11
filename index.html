@@ -3,332 +3,248 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Friends Construction and Architect - We build dreams into reality across Tamil Nadu, Kerala, and Karnataka with 2D/3D plans, construction, interiors, and more.">
+  <meta name="description" content="Friends Construction and Architect - Quality construction, design, and architecture services."/>
+  <meta name="author" content="Friends Construction and Architect"/>
   <title>Friends Construction and Architect</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
-
-  <!-- AOS Animation Library -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
-    /* Existing CSS from your code (unchanged) */
-    .testimonial-box {
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .testimonial-box:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-    }
-    .selected-testimonial {
-      border: 2px solid #04619f;
-      background-color: #e6f4ff;
-    }
-    .menu-wrapper {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      z-index: 10;
-    }
-    .menu-icon {
-      font-size: 26px;
-      color: white;
-      cursor: pointer;
-      text-shadow: 1px 1px 4px black;
-    }
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      right: 0;
-      bottom: 35px;
-      background: rgba(0, 0, 0, 0.9);
-      border-radius: 8px;
-      padding: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    }
-    .dropdown-menu a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 8px 12px;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .dropdown-menu a:last-child {
-      border-bottom: none;
-    }
-    .dropdown-menu a:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-    .nav-wrapper {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      z-index: 2;
-    }
-    .nav-wrapper nav {
-      display: flex;
-      gap: 15px;
-    }
-    .nav-wrapper nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    }
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
     body {
-      background: #f4f4f4;
-      color: #222;
-      line-height: 1.6;
-    }
-    .header-container {
-      position: relative;
-      height: 250px;
-      overflow: hidden;
-    }
-    .header-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("Construction.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: blur(6px);
-      z-index: 0;
-      transform: scale(1.05);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
     }
     header {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      padding: 1rem 2rem;
+      background: #333;
+      color: white;
+      padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      color: white;
-    }
-    #themeToggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
+      align-items: center;
+      position: sticky;
+      top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.2);
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-    }
-    .company-name {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.2rem, 4vw, 2.5rem);
-      font-weight: 600;
-      text-align: center;
-      color: #ffffff;
-      flex: 1;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
     }
     nav a {
       color: white;
       margin: 0 10px;
       text-decoration: none;
-      font-weight: 600;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 20px;
     }
     section {
-      padding: 3rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .projects-grid, .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .project, .service {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project:hover, .service:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      cursor: pointer;
-    }
-    .project img, .service img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      filter: brightness(0.8);
-    }
-    .project div, .service div {
-      padding: 1rem;
-    }
-    .contact {
-      background: #012840;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-    }
-    .form-section {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 2rem auto;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .form-section input, .form-section select, .form-section textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    .form-section button {
-      background: #04619f;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      margin-bottom: 50px;
     }
     footer {
-      background: #000;
-      color: #aaa;
+      background: #333;
+      color: white;
       text-align: center;
-      padding: 1rem;
-    }
-    body.dark-theme {
-      background-color: #111;
-      color: #eee;
-    }
-    body.dark-theme header nav a {
-      color: #ddd;
-    }
-    body.dark-theme .service,
-    body.dark-theme .project,
-    body.dark-theme .form-section {
-      background: #1f1f1f;
-      color: #fff;
-      box-shadow: 0 2px 12px rgba(255,255,255,0.1);
-    }
-    body.dark-theme footer {
-      background: #000;
-      color: #888;
-    }
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .company-name {
-        margin: 10px 0;
-      }
-      nav {
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-      }
+      padding: 15px;
     }
 
-    /* Detail Page Styles */
-    #detailPage {
+    /* Scroll animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Fake new page styling */
+    .detail-page {
       display: none;
-      padding: 3rem 2rem;
+      padding: 40px;
       text-align: center;
     }
-    .blinking {
+    .detail-page h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .detail-page img {
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .coming-soon {
+      font-size: 1.2rem;
+      font-weight: bold;
       animation: blink 1s infinite;
     }
     @keyframes blink {
       50% { opacity: 0; }
     }
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .back-btn:hover {
+      background: #555;
+    }
   </style>
 </head>
 <body>
-
-<!-- HEADER -->
-<div class="header-container">
-  <div class="header-bg"></div>
   <header>
-    <div style="width: 100%; text-align: center;">
-      <div class="company-name" style="font-size: clamp(2.5rem, 6vw, 3.5rem); font-family: 'Orbitron', sans-serif; font-weight: 700; text-shadow: 2px 2px 10px black;">
-        Friends Construction and Architect
-      </div>
-      <div class="tagline" style="font-size: 1.1rem; font-weight: 400; margin-top: 0.2rem; text-shadow: 1px 1px 6px black;">
-        We Build Dreams Into Reality
-      </div>
-      <div class="contact-info" style="font-size: 0.95rem; margin-top: 0.3rem; text-shadow: 1px 1px 5px black;">
-        📞 78250 57008 &nbsp;&nbsp; 📧 fcaconstruction2@gmail.com &nbsp;&nbsp; 📍 All over Tamil Nadu
-      </div>
+    <div class="logo">
+      <h1>Friends Construction & Architect</h1>
     </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="themeToggle">🌙 Theme</button>
+    </nav>
   </header>
-</div>
 
-<!-- Theme Toggle Button -->
-<button id="themeToggle">🌙 Theme</button>
+  <main id="home">
+    <section class="fade-in">
+      <h2>Welcome to Friends Construction & Architect</h2>
+      <p>We bring your dream projects to life with precision and passion.</p>
+    </section>
+    <section id="services" class="fade-in">
+      <h2>Our Services</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div class="service-card" onclick="openDetail('service1')"
+          style="background: #f9f9f9; padding: 20px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h3>Residential Construction</h3>
+          <p>Building beautiful and functional homes for families.</p>
+        </div>
+        <div class="service-card" onclick="openDetail('service2')"
+          style="background: #f9f9f9; padding: 20px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h3>Commercial Projects</h3>
+          <p>Design and construction of modern commercial spaces.</p>
+        </div>
+        <div class="service-card" onclick="openDetail('service3')"
+          style="background: #f9f9f9; padding: 20px; border-radius: 8px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <h3>Architectural Design</h3>
+          <p>Innovative and sustainable designs for any project.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- MAIN CONTENT -->
-<main id="mainContent">
-  <!-- About Section -->
-  <section id="about" data-aos="fade-up">
-    <h2>About Us</h2>
-    <p>We are a leading construction and architectural firm delivering high-quality infrastructure solutions across Tamil Nadu, Kerala, and Karnataka.</p>
+    <section id="projects" class="fade-in">
+      <h2>Our Projects</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+        <div class="project-card" onclick="openDetail('project1')"
+          style="background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <img src="https://via.placeholder.com/400x200" alt="Project 1" style="width:100%;">
+          <div style="padding: 10px;">
+            <h3>Modern Villa</h3>
+          </div>
+        </div>
+        <div class="project-card" onclick="openDetail('project2')"
+          style="background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <img src="https://via.placeholder.com/400x200" alt="Project 2" style="width:100%;">
+          <div style="padding: 10px;">
+            <h3>Office Tower</h3>
+          </div>
+        </div>
+        <div class="project-card" onclick="openDetail('project3')"
+          style="background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+          <img src="https://via.placeholder.com/400x200" alt="Project 3" style="width:100%;">
+          <div style="padding: 10px;">
+            <h3>Shopping Complex</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+      <h2>Contact Us</h2>
+      <form style="display: flex; flex-direction: column; max-width: 400px;">
+        <input type="text" placeholder="Your Name" required style="margin-bottom: 10px; padding: 10px;">
+        <input type="email" placeholder="Your Email" required style="margin-bottom: 10px; padding: 10px;">
+        <textarea placeholder="Your Message" rows="4" required style="margin-bottom: 10px; padding: 10px;"></textarea>
+        <button type="submit" style="padding: 10px; background: #333; color: white; border: none; border-radius: 4px;">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <!-- Hidden Detail Pages -->
+  <section id="detail-page" style="display:none; padding: 20px;">
+    <button onclick="closeDetail()" style="padding: 10px; margin-bottom: 20px; background: #444; color: white; border: none; border-radius: 4px;">
+      ← Back
+    </button>
+    <div id="detail-content"></div>
   </section>
 
-  <!-- Services -->
-  <section id="services" data-aos="fade-up">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service" onclick="showDetail('2D Vastu Plan','2dplan.png')" data-aos="zoom-in"><img src="2dplan.png"><div><h3>2D Vastu Plan</h3></div></div>
-      <div class="service" onclick="showDetail('3D Walkthrough','3dwalkthrough.jpeg')" data-aos="zoom-in"><img src="3dwalkthrough.jpeg"><div><h3>3D Walkthrough</h3></div></div>
-      <!-- Add others similarly -->
-    </div>
-  </section>
-</main>
+  <footer style="text-align:center; padding: 20px; background: #333; color: white;">
+    <p>&copy; 2025 Friends Construction & Architect. All Rights Reserved.</p>
+  </footer>
 
-<!-- DETAIL PAGE -->
-<section id="detailPage">
-  <h2 id="detailTitle"></h2>
-  <img id="detailImage" style="max-width:500px; width:100%; margin:1rem 0;">
-  <p class="blinking" style="font-size:1.2rem; color:red;">Details coming soon...</p>
-  <button onclick="goBack()">⬅ Back</button>
-</section>
+  <script>
+    // Fake database for details
+    const detailsData = {
+      service1: {
+        title: "Residential Construction",
+        content: "We specialize in constructing modern, sustainable homes with top-quality materials."
+      },
+      service2: {
+        title: "Commercial Projects",
+        content: "Our team designs and constructs cutting-edge commercial buildings tailored to your business."
+      },
+      service3: {
+        title: "Architectural Design",
+        content: "We deliver innovative, functional, and visually appealing designs for all project types."
+      },
+      project1: {
+        title: "Modern Villa",
+        content: "A luxury villa project with elegant interiors and eco-friendly features."
+      },
+      project2: {
+        title: "Office Tower",
+        content: "A state-of-the-art office tower designed for productivity and sustainability."
+      },
+      project3: {
+        title: "Shopping Complex",
+        content: "A large retail space with modern facilities and customer-friendly design."
+      }
+    };
 
-<footer>
-  &copy; 2025 Friends Construction and Architect
-</footer>
+    // Function to open detail page
+    function openDetail(id) {
+      document.querySelector("main").style.display = "none";
+      document.getElementById("detail-page").style.display = "block";
+      const detail = detailsData[id];
+      document.getElementById("detail-content").innerHTML = `
+        <h2>${detail.title}</h2>
+        <p>${detail.content}</p>
+      `;
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
+    // Close detail and go back
+    function closeDetail() {
+      document.getElementById("detail-page").style.display = "none";
+      document.querySelector("main").style.display = "block";
+    }
 
-  function showDetail(title, img) {
-    document.getElementById('mainContent').style.display = 'none';
-    document.getElementById('detailPage').style.display = 'block';
-    document.getElementById('detailTitle').textContent = title;
-    document.getElementById('detailImage').src = img;
-  }
-  function goBack() {
-    document.getElementById('detailPage').style.display = 'none';
-    document.getElementById('mainContent').style.display = 'block';
-  }
-</script>
+    // Scroll animation
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
