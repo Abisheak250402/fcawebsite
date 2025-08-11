@@ -85,7 +85,7 @@ p {
 /* --- Menu --- */
 .menu-wrapper {
     position: absolute;
-    top: 70%;
+    top: 75%;
     right: 20px;
     transform: translateY(-50%);
     z-index: 10;
@@ -288,6 +288,15 @@ body.dark-theme {
 body.dark-theme header nav a {
     color: #ddd;
 }
+body.dark-theme #testimonials {
+  color: #eee; /* Make text light */
+}
+
+body.dark-theme #testimonials .testimonial-box {
+  background: #333; /* Dark background for testimonial boxes */
+  color: #eee; /* Light text */
+}
+
 
 /* Service, project and form backgrounds + text */
 body.dark-theme .service,
@@ -335,6 +344,9 @@ body.dark-theme #testimonials .testimonial-box {
 /* Dropdown menu in dark mode */
 body.dark-theme .dropdown-menu {
     background: rgba(0, 0, 0, 0.9);
+}
+#testimonials .testimonial-box p {
+  font-style: italic;
 }
 
 
@@ -530,6 +542,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
