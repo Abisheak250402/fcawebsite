@@ -192,10 +192,17 @@ p {
     transform: scale(1.05);
 }
 header {
-    display: block;
-    padding: 1rem 0;
-    text-align: center;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1rem 0;  /* Remove left & right padding */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: wrap;
+    color: white;
 }
+
 
 .company-name {
     font-family: 'Orbitron', sans-serif;
@@ -913,6 +920,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
