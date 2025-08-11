@@ -22,18 +22,17 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.6);  /* Darker black shade with opacity */
+  backdrop-filter: blur(12px);      /* Slightly stronger blur */
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-evenly;    /* Equal spacing between links */
   padding: 0.75rem 0;
   box-sizing: border-box;
   z-index: 5;
-  border-top: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Navigation links */
+
 .header-nav a {
   color: white;
   font-family: 'Montserrat', sans-serif;
@@ -43,18 +42,8 @@
   padding: 0.25rem 0;
   transition: color 0.3s ease;
   cursor: pointer;
-}
-
-/* Underline animation */
-.header-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 2px;
-  background: #04619f;
-  transition: width 0.3s ease;
+  flex-grow: 1;              /* Each link takes equal width */
+  text-align: center;        /* Center text inside each link */
 }
 
 /* Hover and focus states */
@@ -65,7 +54,8 @@
 
 .header-nav a:hover::after,
 .header-nav a:focus::after {
-  width: 100%;
+  width: 50%;               /* Underline half of link width for style */
+  left: 25%;               /* Keep it centered */
 }
 
 /* Responsive for smaller screens */
@@ -74,8 +64,10 @@
     gap: 1rem;
     padding: 0.5rem 0;
   }
+  .header-nav a {
+    flex-grow: unset;
+  }
 }
-
 .contact h2 {
   color: white !important;
 }
@@ -1009,6 +1001,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
