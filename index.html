@@ -11,6 +11,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
 <style>
+/* Initial state - hidden and shifted down */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When visible - fade in and move up */
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .header-container {
   position: relative;
   height: 250px; /* keep your header height */
@@ -709,13 +722,13 @@ body.dark-theme .client-review {
 
 <main>
     <!-- About Section -->
-    <section id="about">
+    <section id="about" class="animate-on-scroll">
         <h2>About Us</h2>
         <p>We are a leading construction and architectural firm delivering high-quality infrastructure solutions across Tamil Nadu, Kerala, and Karnataka. From concept to completion, our goal is to bring your dream spaces to life.</p>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
+    <section id="services" class="animate-on-scroll">
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service"><img src="2dplan.png" alt="2D Vastu Plan"><div><h3>2D VASTU PLAN</h3><p>Precise vastu-compliant floor planning.</p></div></div>
@@ -739,6 +752,7 @@ body.dark-theme .client-review {
 </section>
 
 <!-- START Testimonials Section -->
+<section id="testimonials" class="animate-on-scroll">
 <section id="testimonials" style="padding:3rem 2rem; background: transparent; text-align:center; position: relative; max-width: 800px; margin: 0 auto 3rem auto;">
 
 
@@ -776,12 +790,13 @@ body.dark-theme .client-review {
   </div>
 
 </section>
+</section>
 <!-- END Testimonials Section -->
 
 
 
     <!-- Projects Section -->
-    <section id="projects">
+    <section id="projects" class="animate-on-scroll">
         <h2>Projects</h2>
         <div class="projects-grid">
             <div class="project"><img src="commercialbuilding.jpeg" alt="Commercial Building"><div><h3>Commercial Building</h3><p>Modern commercial structures with smart architecture.</p></div></div>
@@ -794,13 +809,13 @@ body.dark-theme .client-review {
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+   <section class="contact animate-on-scroll" id="contact">
         <h2>Talk with Our Expert</h2>
         <p>Fill out the form and our team will contact you shortly.</p>
     </section>
 
     <!-- Form Section -->
-    <section class="form-section">
+   <section class="form-section animate-on-scroll">
         <form onsubmit="event.preventDefault(); alert('Form submitted!');">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
@@ -997,10 +1012,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 /* END Testimonials Carousel JS */
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Animate once only
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+});
 
 </script>
 </body>
 </html>
+
 
 
 
