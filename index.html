@@ -369,8 +369,25 @@ body.dark-theme .dropdown-menu {
         gap: 10px;
     }
 }
+    /* Testimonials text - default and dark theme */
+#testimonials .testimonial-box p {
+  font-style: italic;
+  color: #333; /* default dark text */
+}
+
+body.dark-theme #testimonials .testimonial-box p {
+  color: #ddd !important;  /* light color text in dark mode, important to override */
+}
+
+/* Testimonial box background in dark mode */
+body.dark-theme #testimonials .testimonial-box {
+  background-color: #2a2a2a !important;
+  color: #eee !important;
+}
+
 </style>
 </head>
+    
 
 <body>
 
@@ -546,6 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
