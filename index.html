@@ -241,9 +241,11 @@ nav a {
 /* --- Sections --- */
 section {
     padding: 3rem 2rem;
-    max-width: 1100px;
-    margin: auto;
+    width: 100vw;     /* Full viewport width */
+    margin: 0;        /* Remove auto centering */
+    box-sizing: border-box; /* To include padding in width */
 }
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -643,23 +645,15 @@ body.dark-theme .client-review {
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" style="background:#012840; color:white; padding:3rem 2rem; text-align:center;">
-        <h2 style="margin-bottom: 2rem;">Our Achievements</h2>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
-            <div style="flex:1 1 200px;">
-                <h3 style="font-size:2rem;">12+</h3>
-                <p>Projects Completed</p>
-            </div>
-            <div style="flex:1 1 200px;">
-                <h3 style="font-size:2rem;">12+</h3>
-                <p>Happy Clients</p>
-            </div>
-            <div style="flex:1 1 200px;">
-                <h3 style="font-size:2rem;">3 States</h3>
-                <p>Tamil Nadu, Kerala, Karnataka</p>
-            </div>
-        </div>
-    </section>
+    <section id="achievements" style="background:#012840; color:white; padding:3rem 2rem; width: 100vw; margin: 0; box-sizing: border-box;">
+  <div style="max-width: 1100px; margin: auto; text-align:center;">
+    <h2>Our Achievements</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
+      ...
+    </div>
+  </div>
+</section>
+>
 
    <!-- START Testimonials Section -->
 <section id="testimonials" style="padding:3rem 2rem; background:#f7f7f7; text-align:center; position: relative; max-width: 800px; margin: auto;">
@@ -924,4 +918,5 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
