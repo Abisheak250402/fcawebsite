@@ -175,9 +175,12 @@ p {
 
 /* --- Header --- */
 .header-container {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
+  width: 100vw;        /* Full viewport width */
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 250px;
+  overflow: hidden;
 }
 .header-bg {
     position: absolute;
@@ -192,16 +195,16 @@ p {
     transform: scale(1.05);
 }
 header {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    padding: 1rem 0;  /* Remove left & right padding */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center items horizontally */
-    flex-wrap: wrap;
-    color: white;
+  width: 100vw;        /* Full viewport width */
+  margin: 0;
+  padding: 1rem 0;     /* Only vertical padding, no horizontal */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center content */
+  color: white;
+  box-sizing: border-box;  /* Include padding in width */
 }
+
 
 
 .company-name {
@@ -920,6 +923,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
