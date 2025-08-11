@@ -276,25 +276,65 @@ footer {
     padding: 1rem;
 }
 
-/* --- Dark Theme --- */
+/* --- Dark Theme text colors fix --- */
 body.dark-theme {
     background-color: #111;
     color: #eee;
 }
+
+/* Header nav links */
 body.dark-theme header nav a {
     color: #ddd;
 }
+
+/* Service, project and form backgrounds + text */
 body.dark-theme .service,
 body.dark-theme .project,
 body.dark-theme .form-section {
     background: #1f1f1f;
-    color: #fff;
+    color: #eee;
     box-shadow: 0 2px 12px rgba(255,255,255,0.1);
 }
+
+/* Footer */
 body.dark-theme footer {
     background: #000;
     color: #888;
 }
+
+/* Main content headings and paragraphs */
+body.dark-theme main h1,
+body.dark-theme main h2,
+body.dark-theme main h3,
+body.dark-theme main h4,
+body.dark-theme main h5,
+body.dark-theme main h6,
+body.dark-theme main p,
+body.dark-theme main section,
+body.dark-theme main div,
+body.dark-theme main span {
+    color: #eee;
+}
+
+/* Achievements section specific fix (to override inline styles if any) */
+body.dark-theme #achievements,
+body.dark-theme #achievements h2,
+body.dark-theme #achievements h3,
+body.dark-theme #achievements p {
+    color: #eee !important;
+}
+
+/* Testimonials text */
+body.dark-theme #testimonials .testimonial-box {
+    background: #2a2a2a;
+    color: #eee;
+}
+
+/* Dropdown menu in dark mode */
+body.dark-theme .dropdown-menu {
+    background: rgba(0, 0, 0, 0.9);
+}
+
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
@@ -488,6 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
