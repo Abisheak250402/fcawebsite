@@ -1,3 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Friends Construction and Architect - We build dreams into reality across Tamil Nadu, Kerala, and Karnataka with 2D/3D plans, construction, interiors, and more.">
+<title>Friends Construction and Architect</title>
+
+<!-- Google Fonts: Montserrat (headings) + Roboto (body) + Orbitron (header) -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+<style>
+#testimonials {
+  width: 100vw;
+  padding: 3rem 1rem;
+  background: #f7f7f7;
+  overflow: hidden; /* prevent horizontal scroll */
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: none; /* override if any max-width */
+  gap: 2rem;
+  overflow: visible;
+}
+
+.carousel-item {
+  flex: 0 0 33.333%; /* each takes one-third of screen */
+  max-width: 33.333%;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.carousel-item.blur {
+  filter: blur(3px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.carousel-item.active {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  opacity: 1;
+  filter: none;
+  pointer-events: auto;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+#achievements div > h3 {
+    margin-bottom: 0.3rem; /* reduce space below the number */
+}
+
+#achievements div > p {
+    margin-top: 0; /* remove top margin of description */
+}
+
+#achievements {
+    color: white; /* optional to make all text white by default */
+}
+
+#achievements h2 {
+    color: white !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+#achievements h3 {
+    color: white;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#achievements p {
+    color: white;
+}
+
+/* --- Updated Font Styling --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: black;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.2px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Keep header fonts intact */
+.header-container, .header-container * {
+    font-family: 'Orbitron', sans-serif !important;
+    color: white !important;
+}
+
+/* --- Testimonial Styling --- */
+.testimonial-box {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: black;
+}
+.testimonial-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.selected-testimonial {
+    border: 2px solid #04619f;
+    background-color: #e6f4ff;
+}
+
+/* Italic style for testimonial text */
+.testimonial-box p {
+    font-style: italic;
+}
+
+/* --- Menu --- */
+.menu-wrapper {
+    position: absolute;
+    top: 75%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.menu-icon {
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px black;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 35px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+.dropdown-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+.dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Header --- */
+.header-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+.header-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("Construction.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(6px);
+    z-index: 0;
+    transform: scale(1.05);
+}
+header {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+}
+.company-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    flex: 1;
+}
+#themeToggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+/* --- Nav --- */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* --- Sections --- */
+section {
+    padding: 3rem 2rem;
+    max-width: 1100px;
+    margin: auto;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project, .service {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project:hover, .service:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.project img, .service img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    filter: brightness(0.8);
+}
+.project div, .service div {
+    padding: 1rem;
+}
+
+/* --- Contact Section --- */
+.contact {
+    background: #012840;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+}
+.form-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.form-section input, .form-section select, .form-section textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.form-section button {
+    background: #04619f;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* --- Footer --- */
+footer {
+    background: #000;
+    color: #aaa;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* --- Dark Theme text colors fix --- */
+body.dark-theme {
+    background-color: #111;
+    color: #eee;
+}
+
+/* Header nav links */
+body.dark-theme header nav a {
+    color: #ddd;
+}
+body.dark-theme #testimonials {
+  color: #eee; /* Make text light */
+}
+
+body.dark-theme #testimonials .testimonial-box {
+  background: #2a2a2a; /* Dark background */
+  color: #eee !important; /* Light text, important to override inline styles */
+}
+
+/* Make testimonial text inside boxes italic in dark mode and visible */
+body.dark-theme #testimonials .testimonial-box p {
+  font-style: italic;
+  color: #ddd !important;
+}
+
+/* Service, project and form backgrounds + text */
+body.dark-theme .service,
+body.dark-theme .project,
+body.dark-theme .form-section {
+    background: #1f1f1f;
+    color: #eee;
+    box-shadow: 0 2px 12px rgba(255,255,255,0.1);
+}
+
+/* Footer */
+body.dark-theme footer {
+    background: #000;
+    color: #888;
+}
+
+/* Main content headings and paragraphs */
+body.dark-theme main h1,
+body.dark-theme main h2,
+body.dark-theme main h3,
+body.dark-theme main h4,
+body.dark-theme main h5,
+body.dark-theme main h6,
+body.dark-theme main p,
+body.dark-theme main section,
+body.dark-theme main div,
+body.dark-theme main span {
+    color: #eee;
+}
+
+/* Achievements section specific fix (to override inline styles if any) */
+body.dark-theme #achievements,
+body.dark-theme #achievements h2,
+body.dark-theme #achievements h3,
+body.dark-theme #achievements p {
+    color: #eee !important;
+}
+
+/* Dropdown menu in dark mode */
+body.dark-theme .dropdown-menu {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .company-name {
+        margin: 10px 0;
+    }
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+    /* Testimonials text - default and dark theme */
+#testimonials .testimonial-box p {
+  font-style: italic;
+  color: #333; /* default dark text */
+}
+
+body.dark-theme #testimonials .testimonial-box p {
+  color: #ddd !important;  /* light color text in dark mode, important to override */
+}
+
+/* Testimonial box background in dark mode */
+body.dark-theme #testimonials .testimonial-box {
+  background-color: #2a2a2a !important;
+  color: #eee !important;
+}
+body.dark-theme #testimonials h2 {
+  color: #ff4d4d; /* bright red */
+}
+/* START Testimonials Carousel Styles */
+#testimonials {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  background: #f7f7f7;
+  padding: 3rem 2rem;
+  text-align: center;
+  user-select: none;
+}
+
+#testimonialHeading {
+  color: black;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Carousel container */
+.testimonial-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Buttons */
+.carousel-btn {
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #04619f;
+  user-select: none;
+  padding: 0 10px;
+  transition: color 0.3s ease;
+}
+.carousel-btn:hover {
+  color: #023e66;
+}
+
+/* Wrapper for testimonials */
+.testimonial-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  max-width: 650px;
+  justify-content: center;
+  position: relative;
+}
+
+/* Left & right blurred preview boxes */
+.testimonial-preview {
+  flex: 0 0 150px;
+  opacity: 0.5;
+  filter: blur(2px);
+  transition: opacity 0.5s ease, filter 0.5s ease;
+  cursor: default;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
 /* Main testimonial box */
 .testimonial-main {
   flex: 0 0 350px;
@@ -429,3 +924,4 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
