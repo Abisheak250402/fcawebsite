@@ -655,12 +655,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <script>
-    /* START Testimonials Carousel JS */
-
 document.addEventListener("DOMContentLoaded", () => {
   const testimonialsData = [
     {
-      photo: "Client1.jpg_large",
+      photo: "Client1.jpg",
       review: "Excellent planning and execution. The 3D walkthrough gave us clarity before construction. Highly recommended!",
       nameLocation: "- Mr. AjithKumar, Tamil Nadu"
     },
@@ -707,41 +705,47 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   let currentIndex = 0;
+
+  const leftReview = document.getElementById("leftReview");
+  const leftNameLocation = document.getElementById("leftNameLocation");
+  const rightReview = document.getElementById("rightReview");
+  const rightNameLocation = document.getElementById("rightNameLocation");
+  const mainReview = document.getElementById("mainReview");
+  const mainNameLocation = document.getElementById("mainNameLocation");
   const mainTestimonial = document.getElementById("mainTestimonial");
-  const leftTestimonial = document.getElementById("leftTestimonial");
-  const rightTestimonial = document.getElementById("rightTestimonial");
-  const testimonialHeading = document.getElementById("testimonialHeading");
+  const leftPhoto = document.querySelector(".left-preview .client-photo");
+  const rightPhoto = document.querySelector(".right-preview .client-photo");
+  const mainPhoto = document.querySelector("#mainTestimonial .client-photo");
 
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
 
-  // Helper to get index circularly
+  // Circular index helper
   function getIndex(i) {
     return (i + testimonialsData.length) % testimonialsData.length;
   }
 
-  // Update testimonial content
+  // Update testimonials content
   function updateTestimonials() {
     const leftIndex = getIndex(currentIndex - 1);
     const rightIndex = getIndex(currentIndex + 1);
 
-    // Update left preview
-    leftTestimonial.querySelector("img").src = testimonialsData[leftIndex].photo;
-    leftTestimonial.querySelector("p").textContent = testimonialsData[leftIndex].review;
-    leftTestimonial.querySelector("h4").textContent = testimonialsData[leftIndex].nameLocation;
+    // Left preview
+    leftPhoto.src = testimonialsData[leftIndex].photo;
+    leftReview.textContent = testimonialsData[leftIndex].review;
+    leftNameLocation.textContent = testimonialsData[leftIndex].nameLocation;
 
-    // Update right preview
-    rightTestimonial.querySelector("img").src = testimonialsData[rightIndex].photo;
-    rightTestimonial.querySelector("p").textContent = testimonialsData[rightIndex].review;
-    rightTestimonial.querySelector("h4").textContent = testimonialsData[rightIndex].nameLocation;
+    // Right preview
+    rightPhoto.src = testimonialsData[rightIndex].photo;
+    rightReview.textContent = testimonialsData[rightIndex].review;
+    rightNameLocation.textContent = testimonialsData[rightIndex].nameLocation;
 
-    // Update main testimonial
-    mainTestimonial.querySelector("img").src = testimonialsData[currentIndex].photo;
-    mainTestimonial.querySelector("p").textContent = testimonialsData[currentIndex].review;
-    mainTestimonial.querySelector("h4").textContent = testimonialsData[currentIndex].nameLocation;
+    // Main testimonial
+    mainPhoto.src = testimonialsData[currentIndex].photo;
+    mainReview.textContent = testimonialsData[currentIndex].review;
+    mainNameLocation.textContent = testimonialsData[currentIndex].nameLocation;
   }
 
-  // Initialize
   updateTestimonials();
 
   // Auto rotate every 8 seconds
@@ -751,7 +755,7 @@ document.addEventListener("DOMContentLoaded", () => {
     removePopUp();
   }, 8000);
 
-  // Manual next
+  // Manual buttons
   nextBtn.addEventListener("click", () => {
     currentIndex = getIndex(currentIndex + 1);
     updateTestimonials();
@@ -759,7 +763,6 @@ document.addEventListener("DOMContentLoaded", () => {
     removePopUp();
   });
 
-  // Manual prev
   prevBtn.addEventListener("click", () => {
     currentIndex = getIndex(currentIndex - 1);
     updateTestimonials();
@@ -767,7 +770,7 @@ document.addEventListener("DOMContentLoaded", () => {
     removePopUp();
   });
 
-  // Tap to pop-up the main testimonial
+  // Pop-up on main testimonial click
   mainTestimonial.addEventListener("click", () => {
     if (mainTestimonial.classList.contains("pop-up")) {
       removePopUp();
@@ -776,12 +779,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Remove pop-up
   function removePopUp() {
     mainTestimonial.classList.remove("pop-up");
   }
 
-  // Reset auto rotate timer
   function resetAutoRotate() {
     clearInterval(autoRotate);
     autoRotate = setInterval(() => {
@@ -791,11 +792,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 8000);
   }
 });
-/* END Testimonials Carousel JS */
-
 </script>
 </body>
 </html>
+
 
 
 
