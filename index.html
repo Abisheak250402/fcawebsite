@@ -387,6 +387,161 @@ body.dark-theme #testimonials .testimonial-box {
 body.dark-theme #testimonials h2 {
   color: #ff4d4d; /* bright red */
 }
+/* START Testimonials Carousel Styles */
+#testimonials {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  background: #f7f7f7;
+  padding: 3rem 2rem;
+  text-align: center;
+  user-select: none;
+}
+
+#testimonialHeading {
+  color: black;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Carousel container */
+.testimonial-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+/* Buttons */
+.carousel-btn {
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #04619f;
+  user-select: none;
+  padding: 0 10px;
+  transition: color 0.3s ease;
+}
+.carousel-btn:hover {
+  color: #023e66;
+}
+
+/* Wrapper for testimonials */
+.testimonial-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  max-width: 650px;
+  justify-content: center;
+  position: relative;
+}
+
+/* Left & right blurred preview boxes */
+.testimonial-preview {
+  flex: 0 0 150px;
+  opacity: 0.5;
+  filter: blur(2px);
+  transition: opacity 0.5s ease, filter 0.5s ease;
+  cursor: default;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+}
+
+/* Main testimonial box */
+.testimonial-main {
+  flex: 0 0 350px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  user-select: text;
+}
+
+/* Pop-up effect on click */
+.testimonial-main.pop-up {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+/* Client photo */
+.client-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #04619f;
+}
+
+/* Review text */
+.client-review {
+  font-style: italic;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #333;
+  min-height: 60px;
+}
+
+/* Client name and location */
+.client-name-location {
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  color: #04619f;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+/* Dark theme adjustments */
+body.dark-theme #testimonials {
+  background: #2a2a2a;
+}
+
+body.dark-theme #testimonialHeading {
+  color: red;
+}
+
+body.dark-theme .testimonial-main,
+body.dark-theme .testimonial-preview {
+  background: #333;
+  color: #eee;
+  box-shadow: none;
+  border: none;
+}
+
+body.dark-theme .client-name-location {
+  color: #ff6666;
+}
+
+body.dark-theme .client-review {
+  color: #eee;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .testimonial-wrapper {
+    flex-direction: column;
+  }
+  .testimonial-preview {
+    display: none;
+  }
+  .testimonial-main {
+    flex: 1;
+    max-width: 100%;
+  }
+  .carousel-btn {
+    font-size: 2rem;
+  }
+}
+/* END Testimonials Carousel Styles */
 
 </style>
 </head>
@@ -465,24 +620,47 @@ body.dark-theme #testimonials h2 {
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" style="padding:3rem 2rem; background:#f7f7f7; text-align:center;">
-        <h2 style="margin-bottom:2rem;">What Our Clients Say</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:2rem; max-width:1100px; margin:auto;">
-            <div class="testimonial-box" style="background:white; border-radius:10px; padding:1.5rem;">
-                <p style="font-style:italic;">"Excellent planning and execution. The 3D walkthrough gave us clarity before construction. Highly recommended!"</p>
-                <h4 style="margin-top:1rem;">- Mr. Abisheak, Tamil Nadu</h4>
-            </div>
-            <div class="testimonial-box" style="background:white; border-radius:10px; padding:1.5rem;">
-                <p style="font-style:italic;">"FCA handled our renovation with care and perfection. Felt very professional throughout."</p>
-                <h4 style="margin-top:1rem;">- Mrs. Predyusha, Tamil Nadu</h4>
-            </div>
-            <div class="testimonial-box" style="background:white; border-radius:10px; padding:1.5rem;">
-                <p style="font-style:italic;">"From vastu planning to final touches, everything was smooth. Loved their team coordination."</p>
-                <h4 style="margin-top:1rem;">- Miss. KuttyAchu.AP, Karnataka</h4>
-            </div>
+   <!-- START Testimonials Section -->
+<section id="testimonials" style="padding:3rem 2rem; background:#f7f7f7; text-align:center; position: relative; max-width: 800px; margin: auto;">
+
+  <h2 id="testimonialHeading" style="margin-bottom:2rem; transition: color 0.3s ease;">What Our Clients Say</h2>
+
+  <div class="testimonial-carousel">
+    <button class="carousel-btn prev-btn" aria-label="Previous testimonial">&#10094;</button>
+
+    <div class="testimonial-wrapper">
+      <!-- Left blurred preview -->
+      <div class="testimonial-preview left-preview">
+        <div class="testimonial-content blurred" id="leftTestimonial">
+          <img src="Client1.jpg" alt="Client photo" class="client-photo" />
+          <p class="client-review"></p>
+          <h4 class="client-name-location"></h4>
         </div>
-    </section>
+      </div>
+
+      <!-- Center main testimonial -->
+      <div class="testimonial-main" id="mainTestimonial">
+        <img src="Client1.jpg" alt="Client photo" class="client-photo" />
+        <p class="client-review"></p>
+        <h4 class="client-name-location"></h4>
+      </div>
+
+      <!-- Right blurred preview -->
+      <div class="testimonial-preview right-preview">
+        <div class="testimonial-content blurred" id="rightTestimonial">
+          <img src="Client1.jpg" alt="Client photo" class="client-photo" />
+          <p class="client-review"></p>
+          <h4 class="client-name-location"></h4>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-btn next-btn" aria-label="Next testimonial">&#10095;</button>
+  </div>
+
+</section>
+<!-- END Testimonials Section -->
+
 
     <!-- Projects Section -->
     <section id="projects">
@@ -563,9 +741,149 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+<script>
+    /* START Testimonials Carousel JS */
 
+document.addEventListener("DOMContentLoaded", () => {
+  const testimonialsData = [
+    {
+      photo: "Client1.jpg",
+      review: "Excellent planning and execution. The 3D walkthrough gave us clarity before construction. Highly recommended!",
+      nameLocation: "- Mr. Abisheak, Tamil Nadu"
+    },
+    {
+      photo: "Client2.jpg",
+      review: "FCA handled our renovation with care and perfection. Felt very professional throughout.",
+      nameLocation: "- Mrs. Predyusha, Tamil Nadu"
+    },
+    {
+      photo: "Client3.jpg",
+      review: "From vastu planning to final touches, everything was smooth. Loved their team coordination.",
+      nameLocation: "- Miss. KuttyAchu.AP, Karnataka"
+    },
+    {
+      photo: "Client4.jpg",
+      review: "Timely delivery and quality workmanship. We are very satisfied with the construction of our villa.",
+      nameLocation: "- Mr. Rajesh, Kerala"
+    },
+    {
+      photo: "Client5.jpg",
+      review: "Professional team with excellent customer service. Highly recommend FCA for any construction needs.",
+      nameLocation: "- Ms. Anitha, Tamil Nadu"
+    },
+    {
+      photo: "Client6.jpg",
+      review: "The estimation and planning were very accurate. The team made the entire process stress-free.",
+      nameLocation: "- Mr. Kumar, Karnataka"
+    },
+    {
+      photo: "Client7.jpg",
+      review: "Beautiful interior and exterior designs. The renovation exceeded our expectations!",
+      nameLocation: "- Mrs. Shalini, Kerala"
+    },
+    {
+      photo: "Client8.jpg",
+      review: "Good communication and expert guidance from start to finish. Proud to recommend FCA.",
+      nameLocation: "- Mr. Varun, Tamil Nadu"
+    },
+    {
+      photo: "Client9.jpg",
+      review: "High-quality structural drawings and precise execution. We trust FCA for all our projects.",
+      nameLocation: "- Ms. Priya, Karnataka"
+    }
+  ];
+
+  let currentIndex = 0;
+  const mainTestimonial = document.getElementById("mainTestimonial");
+  const leftTestimonial = document.getElementById("leftTestimonial");
+  const rightTestimonial = document.getElementById("rightTestimonial");
+  const testimonialHeading = document.getElementById("testimonialHeading");
+
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+
+  // Helper to get index circularly
+  function getIndex(i) {
+    return (i + testimonialsData.length) % testimonialsData.length;
+  }
+
+  // Update testimonial content
+  function updateTestimonials() {
+    const leftIndex = getIndex(currentIndex - 1);
+    const rightIndex = getIndex(currentIndex + 1);
+
+    // Update left preview
+    leftTestimonial.querySelector("img").src = testimonialsData[leftIndex].photo;
+    leftTestimonial.querySelector("p").textContent = testimonialsData[leftIndex].review;
+    leftTestimonial.querySelector("h4").textContent = testimonialsData[leftIndex].nameLocation;
+
+    // Update right preview
+    rightTestimonial.querySelector("img").src = testimonialsData[rightIndex].photo;
+    rightTestimonial.querySelector("p").textContent = testimonialsData[rightIndex].review;
+    rightTestimonial.querySelector("h4").textContent = testimonialsData[rightIndex].nameLocation;
+
+    // Update main testimonial
+    mainTestimonial.querySelector("img").src = testimonialsData[currentIndex].photo;
+    mainTestimonial.querySelector("p").textContent = testimonialsData[currentIndex].review;
+    mainTestimonial.querySelector("h4").textContent = testimonialsData[currentIndex].nameLocation;
+  }
+
+  // Initialize
+  updateTestimonials();
+
+  // Auto rotate every 8 seconds
+  let autoRotate = setInterval(() => {
+    currentIndex = getIndex(currentIndex + 1);
+    updateTestimonials();
+    removePopUp();
+  }, 8000);
+
+  // Manual next
+  nextBtn.addEventListener("click", () => {
+    currentIndex = getIndex(currentIndex + 1);
+    updateTestimonials();
+    resetAutoRotate();
+    removePopUp();
+  });
+
+  // Manual prev
+  prevBtn.addEventListener("click", () => {
+    currentIndex = getIndex(currentIndex - 1);
+    updateTestimonials();
+    resetAutoRotate();
+    removePopUp();
+  });
+
+  // Tap to pop-up the main testimonial
+  mainTestimonial.addEventListener("click", () => {
+    if (mainTestimonial.classList.contains("pop-up")) {
+      removePopUp();
+    } else {
+      mainTestimonial.classList.add("pop-up");
+    }
+  });
+
+  // Remove pop-up
+  function removePopUp() {
+    mainTestimonial.classList.remove("pop-up");
+  }
+
+  // Reset auto rotate timer
+  function resetAutoRotate() {
+    clearInterval(autoRotate);
+    autoRotate = setInterval(() => {
+      currentIndex = getIndex(currentIndex + 1);
+      updateTestimonials();
+      removePopUp();
+    }, 8000);
+  }
+});
+/* END Testimonials Carousel JS */
+
+</script>
 </body>
 </html>
+
 
 
 
